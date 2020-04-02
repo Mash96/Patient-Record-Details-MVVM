@@ -8,19 +8,19 @@ namespace PatientRecordMVVM.Model
 {
     public class PatientRecordDetailsModel
     {
-        private DateTime dob = DateTime.Today;
-        private PatientAddress address = new PatientAddress();
-        private BitmapImage imgSource;
+        private DateTime m_dob = DateTime.Today;
+        private PatientAddress m_address = new PatientAddress();
+        private BitmapImage m_imgSource;
         public string Name { get; set; }
 
         public PatientAddress Address { 
             get
             {
-                return address;
+                return m_address;
             }
             set
             {
-                address = value;
+                m_address = value;
             }
         }
 
@@ -30,11 +30,11 @@ namespace PatientRecordMVVM.Model
         {
             get
             {
-                return dob;
+                return m_dob;
             }
             set
             {
-                dob = value;
+                m_dob = value;
 
             }
         }
@@ -44,11 +44,11 @@ namespace PatientRecordMVVM.Model
         public BitmapImage Image { 
             get
             {
-                return imgSource;
+                return m_imgSource;
             }
             set
             {
-                imgSource = value;
+                m_imgSource = value;
             }
         }
         public string Dept { get; set; }

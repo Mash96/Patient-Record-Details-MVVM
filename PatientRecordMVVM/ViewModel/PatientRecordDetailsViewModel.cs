@@ -13,42 +13,11 @@ namespace PatientRecordMVVM.ViewModel
 {
     class PatientRecordDetailsViewModel : INotifyPropertyChanged
     {
-        private PatientRecordDetailsModel _patient;
-        private string fileName;
 
-        public PatientRecordDetailsModel Patient
-        {
-            get { return _patient; }
-            set
-            {
-                _patient = value;
-                 OnPropertyChange("Patient");
-                
-            }
-        }
+        private PatientRecordDetailsModel m_patient;
+        private string m_fileName;
 
-        public ObservableCollection<String> Department { get;set; }
-        public ObservableCollection<String> Ward { get; set; }
-        public ObservableCollection<String> DocInCharge { get; set; }
-
-        public string CurrentDate
-        {
-            get
-            {
-                String date;
-                String time;
-                String Date_Time;
-
-                DateTime dateTime = DateTime.Now;
-                date = dateTime.ToString("d");
-                time = dateTime.ToString("T");
-                Date_Time = date + " " + time;
-                return Date_Time;
-            }
-            
-        }
-
-         // Constructor
+        // Constructor
         public PatientRecordDetailsViewModel()
         {
 
@@ -76,6 +45,38 @@ namespace PatientRecordMVVM.ViewModel
             Patient = new PatientRecordDetailsModel();
         }
 
+        public PatientRecordDetailsModel Patient
+        {
+            get { return m_patient; }
+            set
+            {
+                m_patient = value;
+                 OnPropertyChange("Patient");
+                
+            }
+        }
+
+        public ObservableCollection<String> Department { get;set; }
+        public ObservableCollection<String> Ward { get; set; }
+        public ObservableCollection<String> DocInCharge { get; set; }
+
+        public string CurrentDate
+        {
+            get
+            {
+                String date;
+                String time;
+                String Date_Time;
+
+                DateTime dateTime = DateTime.Now;
+                date = dateTime.ToString("d");
+                time = dateTime.ToString("T");
+                Date_Time = date + " " + time;
+                return Date_Time;
+            }
+            
+        }
+
         // Commands
         // Submit command
         public ICommand SubmitCommand
@@ -83,6 +84,19 @@ namespace PatientRecordMVVM.ViewModel
             get => new PatientRecordDetailsCommand(param => this.Submit(), param => CanSubmit());
         }
 
+        // Radio Buttons command
+        public ICommand RadioCommand
+        {
+            get => new PatientRecordDetailsCommand(getRadioContent, canRadioContent);
+        }
+
+        // Image Browser command
+        public ICommand ImageCommand
+        {
+            get => new PatientRecordDetailsCommand(param => getImage(), param => canImage());
+        }
+
+        // Implimentation
         private void Submit()
         {
             
@@ -94,12 +108,6 @@ namespace PatientRecordMVVM.ViewModel
         private bool CanSubmit()
         {
             return true;
-        }
-
-        // Radio Buttons command
-        public ICommand RadioCommand
-        {
-            get => new PatientRecordDetailsCommand(getRadioContent, canRadioContent);
         }
 
         private bool canRadioContent(object parameter)
@@ -116,11 +124,6 @@ namespace PatientRecordMVVM.ViewModel
             Patient.Gender = (string)parameter;
         }
 
-        // Image Browser command
-        public ICommand ImageCommand
-        {
-            get => new PatientRecordDetailsCommand(param=>getImage(), param=>canImage());
-        }
 
         private bool canImage()
         {
@@ -136,17 +139,17 @@ namespace PatientRecordMVVM.ViewModel
                             "All files (*.*)|*.*";
             if (dlg.ShowDialog() == true)
             {
-                fileName = dlg.FileName;
+                m_fileName = dlg.FileName;
                 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(fileName);
+                bitmap.UriSource = new Uri(m_fileName);
                 bitmap.EndInit();
                 Patient.Image = bitmap;
             }
         }
 
-        // INotify
+        // INotify     
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChange(string propertyName)
         {

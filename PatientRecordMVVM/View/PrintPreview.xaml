@@ -8,6 +8,7 @@
         MinWidth="750"
         Title="PrintPreview" Height="850" Width="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <!--Main Grid-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.5*"/>
@@ -24,30 +25,33 @@
                 <RowDefinition Height ="2*"/>
             </Grid.RowDefinitions>
 
-            <Rectangle Grid.RowSpan="2" Grid.ColumnSpan="3" Fill="#9dc6a7"/>
+            <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Background="#9dc6a7"/>
+
             <!--Patient Id block-->
-            <StackPanel Style="{StaticResource StackpanelStyle}" Grid.ColumnSpan="2">
+            <StackPanel Grid.ColumnSpan="2" Style="{StaticResource StackpanelStyle}">
                 <Label FontSize="16" FontWeight="Bold" Foreground="White">
                     Patient ID :
                 </Label>
-                <Label Margin="5,0,0,0"  FontSize="16" Foreground="White">10001</Label>
+                <Label FontSize="16" Foreground="White" Margin="5,0,0,0">10001</Label>
             </StackPanel>
 
             <!--Date block-->
-            <StackPanel Style="{StaticResource StackpanelStyle}" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+            <StackPanel Grid.ColumnSpan="3" Style="{StaticResource StackpanelStyle}" HorizontalAlignment="Right">
                 <Label FontSize="16" FontWeight="Bold" Foreground="White">
                     Date :
                 </Label>
-                <Label Margin="5,0" FontSize="16" Foreground="White" Name="date_time"/>
+                <Label Name="date_time" FontSize="16" Foreground="White" Margin="5,0"/>
             </StackPanel>
 
             <!--Title block-->
             <TextBlock Grid.Row="1" Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" TextDecorations="Underline" Foreground="White">
-            Patient Registration Information
+                Patient Registration Information
             </TextBlock>
-            <!--Sub grid-->
-            <Grid Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center"  VerticalAlignment="Stretch" Margin="25,10,25,10">
-                <!--User's image-->
+            
+            <!--Sub grid 1-->
+            <Grid Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="25,10,25,10">
+                
+                <!--User's image View and name-->
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
                     <Ellipse Width="150" Height="150">
                         <Ellipse.Fill>
@@ -56,12 +60,12 @@
                     </Ellipse>
                     <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,10">
                         <Label Style="{StaticResource LabelStyles}">Patient Name :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewName"/>
+                        <TextBlock x:Name="ViewName" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
 
-            <!--Sub grid-->
+            <!--Sub grid 2-->
             <GroupBox Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Margin="25,-35,25,0">
                 <GroupBox.Header>
                     <TextBlock Style="{StaticResource TextBlockStyleControl}">Patient Personal Information</TextBlock>
@@ -79,29 +83,29 @@
 
                     <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="10,5">
                         <Label Style="{StaticResource PreviewLabelStyles}" >Address :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewANum"/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewAStrt"/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewACity"/>
+                        <TextBlock x:Name="ViewANum"  Style="{StaticResource TextBlockStyle}"/>
+                        <TextBlock x:Name="ViewAStrt" Style="{StaticResource TextBlockStyle}"/>
+                        <TextBlock x:Name="ViewACity" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="50,5,10,10">
                         <Label  Style="{StaticResource PreviewLabelStyles}">Gender :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewGender"/>
+                        <TextBlock x:Name="ViewGender" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="10,5">
                         <Label  Style="{StaticResource PreviewLabelStyles}">Date of Birth :</Label>
-                        <TextBlock  Style="{StaticResource TextBlockStyle}" x:Name="ViewDob"/>
+                        <TextBlock x:Name="ViewDob" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="50,5,10,5">
                         <Label Style="{StaticResource PreviewLabelStyles}">Age :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewAge"/>
+                        <TextBlock x:Name="ViewAge" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>
 
-            <!--Sub grid-->
+            <!--Sub grid 3-->
             <GroupBox Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Margin="25,-25,25,0">
                 <GroupBox.Header>
                     <TextBlock Style="{StaticResource TextBlockStyleControl}">Patient Medical Information</TextBlock>
@@ -119,23 +123,22 @@
 
                     <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="10,5">
                         <Label Style="{StaticResource PreviewLabelStyles}">Department :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewDepartment"/>
+                        <TextBlock x:Name="ViewDepartment" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="50,5,10,0">
                         <Label  Style="{StaticResource PreviewLabelStyles}">Ward :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewWard"/>
+                        <TextBlock x:Name="ViewWard" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="10,5,10,10">
                         <Label  Style="{StaticResource PreviewLabelStyles}">Doctor in Charge :</Label>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="ViewDoc"/>
+                        <TextBlock x:Name="ViewDoc" Style="{StaticResource TextBlockStyle}"/>
                     </StackPanel>
-
                 </Grid>
             </GroupBox>
 
-            <Button Style="{StaticResource ButtonStyle}" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0" Content="Print Content"/>
+            <Button Grid.Row="5" Grid.Column="2" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0" Content="Print Content"/>
 
         </Grid>
     </ScrollViewer>
