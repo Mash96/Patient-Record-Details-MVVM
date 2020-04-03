@@ -56,14 +56,14 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="300*" MinWidth="160" MaxWidth="190" />
+                    <ColumnDefinition Width="200*" MinWidth="158" MaxWidth="190" />
                     <ColumnDefinition Width="700*" MaxWidth="600" />
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2.6*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -79,8 +79,8 @@
                 <TextBox Name="fName" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource StyleControl}" Padding="5"  MinHeight="30" Text="{Binding Path = Patient.Name}"/>
 
                 <!--Address block-->
-                <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource LabelStyles}" >Address :</Label>
-                <StackPanel Grid.Row="1" Grid.Column="2"  VerticalAlignment="Top" Orientation="Vertical" Margin="0,2">
+                <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource LabelStyles}" Margin="0,7,15,0">Address :</Label>
+                <StackPanel Grid.Row="1" Grid.Column="2"  VerticalAlignment="Center" Orientation="Vertical" Margin="0,2">
                     <DockPanel LastChildFill="True" Margin="0,5">
                         <Label Style="{StaticResource AddressLabelStyles}">Number :</Label>
                         <TextBox Name="Number" Style="{StaticResource StyleControl}" VerticalAlignment="Center" Padding="5" MinHeight="30"  Text="{Binding Path =  Patient.Address.Number}" />
@@ -98,8 +98,8 @@
                 <!--Gender block-->
                 <Label  Grid.Row="2" Grid.Column="1" Style="{StaticResource LabelStyles}">Gender :</Label>
                 <StackPanel Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,6,0,0">
-                    <RadioButton Name="male" Content="Male" FontSize="14" MinWidth="100" Command="{Binding Path=RadioCommand}" CommandParameter="{Binding ElementName=male, Path=Content}"/>
-                    <RadioButton Name="female" Content="Female" FontSize="14" Command="{Binding Path=RadioCommand}" CommandParameter="{Binding ElementName=female, Path=Content}"/> 
+                    <RadioButton Name="male" Content="Male" FontSize="14" MinWidth="100" Padding="5,-2.5" Command="{Binding Path=RadioCommand}" CommandParameter="{Binding ElementName=male, Path=Content}"/>
+                <RadioButton Name="female" Content="Female" FontSize="14" Padding="5,-2.5" Command="{Binding Path=RadioCommand}" CommandParameter="{Binding ElementName=female, Path=Content}"/> 
                 </StackPanel>
 
                 <!--Birthdate block-->
@@ -113,12 +113,12 @@
                 <!--Image block-->
                 <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource LabelStyles}">Image :</Label>
                 <DockPanel Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" MinHeight="30" LastChildFill="True">
-                    <Button Style="{StaticResource ButtonStyle}" Command="{Binding Path=ImageCommand}" DockPanel.Dock="Left" Content="Browse" Margin="0,0,5,0"/>
-                    <TextBox Style="{StaticResource StyleControl}" Text="{Binding Path=Patient.Image}" DockPanel.Dock="Right" HorizontalAlignment="Stretch" Padding="5" Name="FileBrowser"/>
+                    <Button DockPanel.Dock="Left" Style="{StaticResource ButtonStyle}" Content="Browse" Margin="0,0,5,0" Command="{Binding Path=ImageCommand, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Name="FileBrowser" DockPanel.Dock="Right" Style="{StaticResource StyleControl}"  HorizontalAlignment="Stretch" Padding="5" Text="{Binding Path= ImageSourceView}"/>
                 </DockPanel>
 
                 <!--Image view block-->
-                <Image Name="ImageViewer" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" MinWidth="95" MaxWidth="150" MinHeight="95" MaxHeight="150" Margin="0,0,0,10" Source="{Binding Path=Patient.Image, UpdateSourceTrigger=PropertyChanged}"/>
+                <Image Name="ImageViewer" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" MinWidth="95" MaxWidth="150" MinHeight="95" MaxHeight="150" Margin="0,0,0,10" Source ="{Binding Path= ImageSourceView}"/>
 
 
                 <!--Department block-->

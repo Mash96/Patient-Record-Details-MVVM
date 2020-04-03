@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PatientRecordMVVM.Model
 {
@@ -10,7 +12,7 @@ namespace PatientRecordMVVM.Model
     {
         private DateTime m_dob = DateTime.Today;
         private PatientAddress m_address = new PatientAddress();
-        private BitmapImage m_imgSource;
+        private ImageSource m_imgSource;
         public string Name { get; set; }
 
         public PatientAddress Address { 
@@ -41,7 +43,7 @@ namespace PatientRecordMVVM.Model
         
         public int Age { get; set; }
 
-        public BitmapImage Image { 
+        public ImageSource ImageView { 
             get
             {
                 return m_imgSource;

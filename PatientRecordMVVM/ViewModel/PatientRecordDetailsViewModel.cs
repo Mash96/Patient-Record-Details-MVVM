@@ -8,6 +8,8 @@ using PatientRecordMVVM.Model;
 using System.Windows;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PatientRecordMVVM.ViewModel
 {
@@ -15,7 +17,7 @@ namespace PatientRecordMVVM.ViewModel
     {
 
         private PatientRecordDetailsModel m_patient;
-        private string m_fileName;
+        private ImageSource m_imageShow;
 
         // Constructor
         public PatientRecordDetailsViewModel()
@@ -51,7 +53,7 @@ namespace PatientRecordMVVM.ViewModel
             set
             {
                 m_patient = value;
-                 OnPropertyChange("Patient");
+                OnPropertyChange("Patient");
                 
             }
         }
@@ -75,6 +77,21 @@ namespace PatientRecordMVVM.ViewModel
                 return Date_Time;
             }
             
+        }
+
+        public ImageSource ImageSourceView
+        {
+            get
+            {
+                return m_imageShow;
+            }
+            set
+            {
+                m_imageShow = value;
+                Patient.ImageView = value;
+                OnPropertyChange("ImageSourceView");
+
+            }
         }
 
         // Commands
@@ -101,7 +118,7 @@ namespace PatientRecordMVVM.ViewModel
         {
             
             MessageBox.Show(Patient.Name+ " "+Patient.Age+ " " + Patient.Dob.ToShortDateString()+ " " + Patient.Gender+ " " + Patient.Address.Number+ " " +
-                Patient.Address.Street+ " " + Patient.Address.City+ " " + Patient.Image+ " " + Patient.Dept+ " "+ Patient.Ward+" "+Patient.DocInCharge);
+                Patient.Address.Street+ " " + Patient.Address.City+ " "  + Patient.ImageView+" " + Patient.Dept+ " "+ Patient.Ward+" "+Patient.DocInCharge);
             
         }
 
@@ -139,13 +156,12 @@ namespace PatientRecordMVVM.ViewModel
                             "All files (*.*)|*.*";
             if (dlg.ShowDialog() == true)
             {
-                m_fileName = dlg.FileName;
-                
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(m_fileName);
-                bitmap.EndInit();
-                Patient.Image = bitmap;
+                String m_fileName = dlg.FileName;
+                BitmapImage bitmap = new BitmapImage(new Uri(m_fileName));
+                //Patient.ImageView = bitmap;
+                ImageSourceView = bitmap;
+
+
             }
         }
 
