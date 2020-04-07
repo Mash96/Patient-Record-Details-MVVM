@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using PatientRecordMVVM.View;
+using PatientRecordMVVM.ViewModel;
 
 namespace PatientRecordMVVM
 {
@@ -18,6 +19,8 @@ namespace PatientRecordMVVM
         {
             PatientRecordDetails userWindow = new PatientRecordDetails();
             userWindow.Title = "Patient Record Details";
+            PatientRecordDetailsViewModel patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();
+            userWindow.DataContext = patientRecordDetailsViewModel;
             userWindow.Show();
         }
     }

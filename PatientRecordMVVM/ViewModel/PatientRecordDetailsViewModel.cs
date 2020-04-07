@@ -10,14 +10,13 @@ using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using System.Windows.Media;
+using PatientRecordMVVM.Services;
 
 namespace PatientRecordMVVM.ViewModel
 {
-    class PatientRecordDetailsViewModel : INotifyPropertyChanged
+    class PatientRecordDetailsViewModel
     {
-
-        private PatientRecordDetailsModel m_patient;
-        private ImageSource m_imageShow;
+        WindowNavService windowNav = new WindowNavService();
 
         // Constructor
         public PatientRecordDetailsViewModel()
@@ -47,17 +46,7 @@ namespace PatientRecordMVVM.ViewModel
             Patient = new PatientRecordDetailsModel();
         }
 
-        public PatientRecordDetailsModel Patient
-        {
-            get { return m_patient; }
-            set
-            {
-                m_patient = value;
-                OnPropertyChange("Patient");
-                
-            }
-        }
-
+        public PatientRecordDetailsModel Patient { get; set; }
         public ObservableCollection<String> Department { get;set; }
         public ObservableCollection<String> Ward { get; set; }
         public ObservableCollection<String> DocInCharge { get; set; }
@@ -79,21 +68,6 @@ namespace PatientRecordMVVM.ViewModel
             
         }
 
-        public ImageSource ImageSourceView
-        {
-            get
-            {
-                return m_imageShow;
-            }
-            set
-            {
-                m_imageShow = value;
-                Patient.ImageView = value;
-                OnPropertyChange("ImageSourceView");
-
-            }
-        }
-
         // Commands
         // Submit command
         public ICommand SubmitCommand
@@ -113,12 +87,18 @@ namespace PatientRecordMVVM.ViewModel
             get => new PatientRecordDetailsCommand(param => getImage(), param => canImage());
         }
 
+        // Clear Command
+        public ICommand ClearCommand
+        {
+            get => new PatientRecordDetailsCommand(param => Clear(), param => CanClear());
+        }
+
         // Implimentation
         private void Submit()
         {
-            
-            MessageBox.Show(Patient.Name+ " "+Patient.Age+ " " + Patient.Dob.ToShortDateString()+ " " + Patient.Gender+ " " + Patient.Address.Number+ " " +
-                Patient.Address.Street+ " " + Patient.Address.City+ " "  + Patient.ImageView+" " + Patient.Dept+ " "+ Patient.Ward+" "+Patient.DocInCharge);
+
+            IWindowService windowService = windowNav;
+            windowService.CreateWindow(Patient);
             
         }
 
@@ -147,6 +127,25 @@ namespace PatientRecordMVVM.ViewModel
             return true;
         }
 
+        private void Clear()
+        {
+            Patient.Name = null;
+            Patient.Address = null;
+            Patient.Gender = null;
+            Patient.Dob = DateTime.Now;
+            Patient.Age = 0;
+            Patient.ImageView = null;
+            Patient.Dept = null;
+            Patient.Ward = null;
+            Patient.DocInCharge = null;
+            
+        }
+
+        private bool CanClear()
+        {
+            return true;
+        }
+
         private void getImage()
         {
             
@@ -158,20 +157,8 @@ namespace PatientRecordMVVM.ViewModel
             {
                 String m_fileName = dlg.FileName;
                 BitmapImage bitmap = new BitmapImage(new Uri(m_fileName));
-                //Patient.ImageView = bitmap;
-                ImageSourceView = bitmap;
-
-
-            }
-        }
-
-        // INotify     
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChange(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                Patient.ImageView = bitmap;
+                
             }
         }
     }

@@ -23,9 +23,7 @@ namespace PatientRecordMVVM.View
         public PatientRecordDetails()
         {
             InitializeComponent();
-            patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();
-            this.DataContext = patientRecordDetailsViewModel;
-            //Date.SelectedDate = DateTime.Today;
+           
         }
     }
 }
