@@ -13,7 +13,15 @@ namespace PatientRecordMVVM.ViewModel
 {
     class PatientRecordDetailsViewModel : INotifyPropertyChanged
     {
-        IWindowService windowNav;
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+        #region Data Members
+        private IWindowService m_windowNavigationService;
+        #endregion
+
+        #region Fields
         private string m_patientId;
         private string m_patientName;
         private string m_patientGender;
@@ -24,8 +32,9 @@ namespace PatientRecordMVVM.ViewModel
         private string m_patientDepartment;
         private string m_patientWard;
         private string m_patientDocInCharge;
+        #endregion
 
-        // Constructor
+        #region Constructors
         public PatientRecordDetailsViewModel()
         {
 
@@ -42,26 +51,29 @@ namespace PatientRecordMVVM.ViewModel
             this.DocInCharge = new ObservableCollection<string> 
             {
                 "Dr. Asala Perera", "Dr. Janaka Thisera", "Dr. Manik Perera", "Dr. Seetha Fonseka", "Dr. Athula Dissanayake"
-            };           
+            };
 
-            windowNav = new WindowNavService();
+            m_windowNavigationService = new WindowService();
 
             Patient = new PatientRecordDetailsModel();
 
+            // Has an issue
             PatientAddress = new PatientAddress();
         }
+        #endregion
 
+        #region Properties
         public PatientRecordDetailsModel Patient { get; set; }
+
         public ObservableCollection<String> Department { get; set; }
+
         public ObservableCollection<String> Ward { get; set; }
+
         public ObservableCollection<String> DocInCharge { get; set; }
 
         public string PatientID
         {
-            get
-            {
-                return m_patientId;
-            }
+            get => m_patientId;
             set
             {
                 m_patientId = value;
@@ -71,10 +83,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public string PatientName
         {
-            get
-            {
-                return m_patientName;
-            }
+            get => m_patientName;
             set
             {
                 m_patientName = value;
@@ -85,10 +94,7 @@ namespace PatientRecordMVVM.ViewModel
         //#issue
         public PatientAddress PatientAddress
         {
-            get
-            {
-                return m_patientAddress;
-            }
+            get => m_patientAddress;
             set
             {
                 m_patientAddress = value;
@@ -98,10 +104,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public string PatientGender
         {
-            get
-            {
-                return m_patientGender;
-            }
+            get => m_patientGender;
             set
             {
                 m_patientGender = value;
@@ -111,10 +114,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public DateTime PatientDateOfBirth
         {
-            get
-            {
-                return m_patientDateofbirth;
-            }
+            get => m_patientDateofbirth;
             set
             {
                 m_patientDateofbirth = value;
@@ -124,10 +124,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public int PatientAge
         {
-            get
-            {
-                return m_patientAge;
-            }
+            get => m_patientAge;
             set
             {
                 m_patientAge = value;
@@ -137,10 +134,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public ImageSource PatientImageSource
         {
-            get
-            {
-                return m_patientImageSource;
-            }
+            get => m_patientImageSource;
             set
             {
                 m_patientImageSource = value;
@@ -150,10 +144,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public string PatientDepartment
         {
-            get
-            {
-                return m_patientDepartment;
-            }
+            get => m_patientDepartment;
             set
             {
                 m_patientDepartment = value;
@@ -163,10 +154,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public string PatientWard
         {
-            get
-            {
-                return m_patientWard;
-            }
+            get => m_patientWard;
             set
             {
                 m_patientWard = value;
@@ -176,72 +164,57 @@ namespace PatientRecordMVVM.ViewModel
 
         public string PatientDotorcInCharge
         {
-            get
-            {
-                return m_patientDocInCharge;
-            }
+            get => m_patientDocInCharge;
             set
             {
                 m_patientDocInCharge = value;
                 OnPropertyChange("PatientDotorcInCharge");
             }
         }
-        
-        public string CurrentDate
-        {
-            get
-            {
-                String date;
-                String time;
-                String Date_Time;
+        #endregion
 
-                DateTime dateTime = DateTime.Now;
-                date = dateTime.ToString("d");
-                time = dateTime.ToString("T");
-                Date_Time = date + " " + time;
-                return Date_Time;
-            }          
+        #region <PatientRecordDetails> Members
+        public string CurrentDate => m_windowNavigationService.GetCurrentDate();
+
+        public string GuidGenerator => GetGuid();
+        #endregion
+
+        #region Properties : Commands
+        public ICommand PreviewCommand
+        {
+            get => new PatientRecordDetailsCommands(param => this.OnPreviewCommandExecute(), param => OnPreviewCommandCanExecute());
         }
 
-        public string GuidGenerator
+        public ICommand GetPatientGenderCommand
         {
-            get
-            {
-                Guid guid = Guid.NewGuid();
-                string guidString = guid.ToString();
-                PatientID = guidString;
-                return PatientID;
-            }
+            get => new PatientRecordDetailsCommands(OnGetPatientGenderCommandExecute, OnGetPatientGenderCommandCanExecute);
         }
 
-        // Commands
-        // Submit command
-        public ICommand SubmitCommand
+        public ICommand GetPatientImageCommand
         {
-            get => new PatientRecordDetailsCommands(param => this.PrintPreview(), param => CanPrintPreview());
+            get => new PatientRecordDetailsCommands(param => OnGetPatientImageCommandExecute(), param => OnGetPatientImageCommandCanExecute());
         }
 
-        // Radio Buttons command
-        public ICommand RadioCommand
+        public ICommand ClearPatientCommand
         {
-            get => new PatientRecordDetailsCommands(GetRadioContent, CanRadioContent);
+            get => new PatientRecordDetailsCommands(param => OnClearPatientCommandExecute(), param => OnClearPatientCommandCanExecute());
+        }
+        #endregion
+
+
+        #region Handlers : Members       
+        private string GetGuid()
+        {
+            Guid guid = Guid.NewGuid();
+
+            string guidString = guid.ToString();
+            PatientID = guidString;
+
+            return PatientID;
         }
 
-        // Image Browser command
-        public ICommand ImageCommand
+        private PatientRecordDetailsModel PopulatePatientDetails()
         {
-            get => new PatientRecordDetailsCommands(param => GetImage(), param => CanImage());
-        }
-
-        // Clear Command
-        public ICommand ClearCommand
-        {
-            get => new PatientRecordDetailsCommands(param => Clear(), param => CanClear());
-        }
-
-        // Implimentation
-        private void PrintPreview()
-        {           
             Patient.PatientId = PatientID;
             Patient.PatientName = PatientName;
             Patient.PatientAddress = PatientAddress;
@@ -253,45 +226,38 @@ namespace PatientRecordMVVM.ViewModel
             Patient.PatientWard = PatientWard;
             Patient.PatientDoctorInCharge = PatientDotorcInCharge;
 
-            windowNav.CreateWindow(Patient);           
+            return Patient;
         }
+        #endregion
 
-        private bool CanPrintPreview()
+        #region Handlers : Commands
+        private void OnPreviewCommandExecute()
         {
-            if (PatientName != null )
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            PatientRecordDetailsModel getPatientDetails = PopulatePatientDetails();
+            m_windowNavigationService.CreateWindow(getPatientDetails);
         }
 
-        private bool CanRadioContent(object parameter)
+        private bool OnPreviewCommandCanExecute()
         {
-            if (parameter != null)
-            {
-                return true;
-            }
-            else return false;
+            return PatientName != null;
         }
 
-        private void GetRadioContent(object parameter)
+        private bool OnGetPatientGenderCommandCanExecute(object parameter)
+        {
+            return parameter != null;
+        }
+
+        private void OnGetPatientGenderCommandExecute(object parameter)
         {
             PatientGender = (string)parameter;
         }
 
-        private bool CanClear()
+        private bool OnClearPatientCommandCanExecute()
         {
-            if(PatientName != null || PatientAddress != null || PatientGender != null || PatientAge != 0)
-            {
-                return true;
-            }
-            else return false;
+            return PatientName != null || PatientAddress != null || PatientGender != null || PatientAge != 0;
         }
 
-        private void Clear()
+        private void OnClearPatientCommandExecute()
         {
             PatientName = null;
             PatientAddress = new PatientAddress();
@@ -304,18 +270,17 @@ namespace PatientRecordMVVM.ViewModel
             PatientDotorcInCharge = null;
         }
 
-        private bool CanImage()
-        {
-            return true;
-        }
+        private bool OnGetPatientImageCommandCanExecute() => true;
 
-        private void GetImage()
+        private void OnGetPatientImageCommandExecute()
         {
-            
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\";
-            dlg.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
-                            "All files (*.*)|*.*";
+
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
+                Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
+                            "All files (*.*)|*.*"
+            };
             if (dlg.ShowDialog() == true)
             {
                 String m_fileName = dlg.FileName;
@@ -324,12 +289,13 @@ namespace PatientRecordMVVM.ViewModel
                 
             }
         }
+        #endregion
 
-        // INotify     
-        public event PropertyChangedEventHandler PropertyChanged;
+        #region Event Handlers
         private void OnPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
     }
 }

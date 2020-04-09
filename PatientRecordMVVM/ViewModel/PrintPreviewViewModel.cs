@@ -1,25 +1,20 @@
-﻿using System;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using PatientRecordMVVM.Model;
+using PatientRecordMVVM.Services;
 
 namespace PatientRecordMVVM.ViewModel
 {
     class PrintPreviewViewModel
     {
-        private string m_patientId;
-        private string m_patientName;
-        private string m_patientGender;
-        private int m_patientAge;
-        private string m_patientDateofbirth;
-        private ImageSource m_patientImageSource;
-        private PatientAddress m_patientAddress = new PatientAddress();
-        private string m_patientDepartment;
-        private string m_patientWard;
-        private string m_patientDocInCharge;
+        #region Data Members
+        private IWindowService m_windowService;
+        #endregion
 
+        #region Constructors
         public PrintPreviewViewModel(PatientRecordDetailsModel patient)
         {
             string id = patient.PatientId;
+
             PatientID = id.PadRight(6).Substring(0,6);
             PatientName = patient.PatientName;
             PatientAddress = patient.PatientAddress;
@@ -30,142 +25,37 @@ namespace PatientRecordMVVM.ViewModel
             PatientDepartment = patient.PatientDepartment;
             PatientWard = patient.PatientWard;
             PatientDotorcInCharge = patient.PatientDoctorInCharge;
-        }
 
-        public string PatientID
-        {
-            get
-            {
-                return m_patientId;
-            }
-            set
-            {
-                m_patientId = value;
-            }
+            m_windowService = new WindowService();
         }
+        #endregion
 
-        public string PatientName
-        {
-            get
-            {
-                return m_patientName;
-            }
-            set
-            {
-                m_patientName = value;
-            }
-        }
+        #region Properties
+        public string PatientID { get; set; }
 
-        public PatientAddress PatientAddress
-        {
-            get
-            {
-                return m_patientAddress;
-            }
-            set
-            {
-                m_patientAddress = value;
-            }
-        }
+        public string PatientName { get; set; }
 
-        public string PatientGender
-        {
-            get
-            {
-                return m_patientGender;
-            }
-            set
-            {
-                m_patientGender = value;
-            }
-        }
+        public PatientAddress PatientAddress { get; set; } 
 
-        public string PatientDateOfBirth
-        {
-            get
-            {
-                return m_patientDateofbirth;
-            }
-            set
-            {
-                m_patientDateofbirth = value;
-            }
-        }
+        public string PatientGender { get; set; }
 
-        public int PatientAge
-        {
-            get
-            {
-                return m_patientAge;
-            }
-            set
-            {
-                m_patientAge = value;
-            }
-        }
+        public string PatientDateOfBirth { get; set; }
 
-        public ImageSource PatientImageSource
-        {
-            get
-            {
-                return m_patientImageSource;
-            }
-            set
-            {
-                m_patientImageSource = value;
-            }
-        }
+        public int PatientAge { get; set; }
 
-        public string PatientDepartment
-        {
-            get
-            {
-                return m_patientDepartment;
-            }
-            set
-            {
-                m_patientDepartment = value;
-            }
-        }
+        public ImageSource PatientImageSource { get; set; }
 
-        public string PatientWard
-        {
-            get
-            {
-                return m_patientWard;
-            }
-            set
-            {
-                m_patientWard = value;
-            }
-        }
+        public string PatientDepartment { get; set; }
 
-        public string PatientDotorcInCharge
-        {
-            get
-            {
-                return m_patientDocInCharge;
-            }
-            set
-            {
-                m_patientDocInCharge = value;
-            }
-        }
+        public string PatientWard { get; set; }
 
-        public string CurrentDate
-        {
-            get
-            {
-                String date;
-                String time;
-                String Date_Time;
+        public string PatientDotorcInCharge { get; set; }
+        #endregion
 
-                DateTime dateTime = DateTime.Now;
-                date = dateTime.ToString("d");
-                time = dateTime.ToString("T");
-                Date_Time = date + " " + time;
-                return Date_Time;
-            }
-        }
+        #region <PrintPreview> Members
+        public string CurrentDate => m_windowService.GetCurrentDate();
+        #endregion
+
+        
     }
 }

@@ -98,8 +98,8 @@
                 <!--Gender block-->
                 <Label  Grid.Row="2" Grid.Column="1" Style="{StaticResource LabelStyles}">Gender :</Label>
                 <StackPanel Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,6,0,0">
-                    <RadioButton Name="male" Content="Male" FontSize="14" MinWidth="100" Padding="5,-2.5" Command="{Binding Path=RadioCommand}" CommandParameter="{Binding ElementName=male, Path=Content}"/>
-                    <RadioButton Name="female" Content="Female" FontSize="14" Padding="5,-2.5" Command="{Binding Path=RadioCommand}" CommandParameter="{Binding ElementName=female, Path=Content}"/> 
+                    <RadioButton Name="male" Content="Male" FontSize="14" MinWidth="100" Padding="5,-2.5" Command="{Binding Path=GetPatientGenderCommand}" CommandParameter="{Binding ElementName=male, Path=Content}"/>
+                    <RadioButton Name="female" Content="Female" FontSize="14" Padding="5,-2.5" Command="{Binding Path=GetPatientGenderCommand}" CommandParameter="{Binding ElementName=female, Path=Content}"/> 
                 </StackPanel>
 
                 <!--Birthdate block-->
@@ -113,7 +113,7 @@
                 <!--Image block-->
                 <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource LabelStyles}">Image :</Label>
                 <DockPanel Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" MinHeight="30" LastChildFill="True">
-                    <Button DockPanel.Dock="Left" Style="{StaticResource ButtonStyle}" Content="Browse" Margin="0,0,5,0" Command="{Binding Path=ImageCommand, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button DockPanel.Dock="Left" Style="{StaticResource ButtonStyle}" Content="Browse" Margin="0,0,5,0" Command="{Binding Path=GetPatientImageCommand, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBox Name="FileBrowser" DockPanel.Dock="Right" Style="{StaticResource TextBoxStyle}"  HorizontalAlignment="Stretch" Text="{Binding Path= PatientImageSource}"/>
                 </DockPanel>
 
@@ -137,8 +137,8 @@
 
             <!--Buttons Section-->
             <StackPanel Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="20,10,26,0" >
-                <Button Style="{StaticResource ButtonStyle}" Margin="0,0,5,0" Content="Print Preview" Command="{Binding Path=SubmitCommand}" />
-                <Button Style="{StaticResource ButtonStyle}" Content="Clear" Command="{Binding Path=ClearCommand}"/>
+                <Button Style="{StaticResource ButtonStyle}" Margin="0,0,5,0" Content="Print Preview" Command="{Binding Path=PreviewCommand}" />
+                <Button Style="{StaticResource ButtonStyle}" Content="Clear" Command="{Binding Path=ClearPatientCommand}"/>
             </StackPanel>
 
         </Grid>
