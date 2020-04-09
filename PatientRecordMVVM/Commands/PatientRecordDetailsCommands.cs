@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
-using System.ComponentModel;
 
-namespace PatientRecordMVVM.ViewModel
+namespace PatientRecordMVVM.Commands
 {
-    class PatientRecordDetailsCommand : ICommand
+    class PatientRecordDetailsCommands : ICommand
     {
         Action<object> _executeMethod;
         Func<object, bool> _canexecuteMethod;
 
-        public PatientRecordDetailsCommand(Action<object> executeMethod, Func<object, bool> canexecuteMethod)
+        public PatientRecordDetailsCommands(Action<object> executeMethod, Func<object, bool> canexecuteMethod)
         {
             _executeMethod = executeMethod;
             _canexecuteMethod = canexecuteMethod;
@@ -19,7 +16,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public bool CanExecute(object parameter)
         {
-            if(_canexecuteMethod != null)
+            if (_canexecuteMethod != null)
             {
                 return _canexecuteMethod(parameter);
             }

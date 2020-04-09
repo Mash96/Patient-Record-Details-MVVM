@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PatientRecordMVVM.View;
+﻿using PatientRecordMVVM.View;
 using PatientRecordMVVM.ViewModel;
 using PatientRecordMVVM.Model;
 

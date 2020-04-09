@@ -9,7 +9,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PatientRecordMVVM.ViewModel;
 
 namespace PatientRecordMVVM.View
 {
@@ -18,8 +17,7 @@ namespace PatientRecordMVVM.View
     /// </summary>
     public partial class PatientRecordDetails : Window
     {
-        private PatientRecordDetailsViewModel patientRecordDetailsViewModel;
-
+        
         public PatientRecordDetails()
         {
             InitializeComponent();

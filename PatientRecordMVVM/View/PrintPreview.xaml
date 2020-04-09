@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:PatientRecordMVVM.View"
 		mc:Ignorable="d"
-		MinWidth="750"
+		MinWidth="700"
 		Title="PrintPreview" Height="850" Width="800">
 	<ScrollViewer VerticalScrollBarVisibility="Auto">
 		<!--Main Grid-->
@@ -18,9 +18,9 @@
 
 			<Grid.RowDefinitions>
 				<RowDefinition Height ="1.5*"/>
-				<RowDefinition Height ="1.5*"/>
-				<RowDefinition Height ="5*" MinHeight="220"/>
-				<RowDefinition Height ="8*" MinHeight="200"/>
+				<RowDefinition Height ="1.7*"/>
+				<RowDefinition Height ="5*" MinHeight="200"/>
+				<RowDefinition Height ="7*" MinHeight="200"/>
 				<RowDefinition Height ="6*" MinHeight="100"/>
 				<RowDefinition Height ="2*"/>
 			</Grid.RowDefinitions>
@@ -32,8 +32,8 @@
 				<Label FontSize="16" FontWeight="Bold" Foreground="White">
 					Patient ID :
 				</Label>
-				<Label FontSize="16" Foreground="White" Margin="5,0,0,0">10001</Label>
-			</StackPanel>
+                <Label FontSize="16" Foreground="White" Margin="5,0,0,0" Content="{Binding Path=PatientID}"/> 
+            </StackPanel>
 
 			<!--Date block-->
 			<StackPanel Grid.ColumnSpan="3" Style="{StaticResource StackpanelStyle}" HorizontalAlignment="Right">
@@ -55,12 +55,12 @@
 				<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
 					<Ellipse Width="150" Height="150">
 						<Ellipse.Fill>
-                            <ImageBrush x:Name="ImageViewer2" ImageSource="{Binding Path=Patient.ImageView}"/>
+                            <ImageBrush x:Name="ImageViewer2" ImageSource="{Binding Path=PatientImageSource}"/>
                         </Ellipse.Fill>
 					</Ellipse>
 					<StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,10">
-						<Label Style="{StaticResource LabelStyles}">Patient Name :</Label>
-						<TextBlock x:Name="ViewName" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = Patient.Name}"/>
+						<Label Style="{StaticResource LabelStyles}" Margin="0">Patient Name :</Label>
+                        <TextBlock x:Name="ViewName" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = PatientName}"/>
 					</StackPanel>
 				</StackPanel>
 			</Grid>
@@ -83,24 +83,24 @@
 
 					<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="10,5">
 						<Label Style="{StaticResource PreviewLabelStyles}" >Address :</Label>
-						<TextBlock x:Name="ViewANum"  Style="{StaticResource TextBlockStyle}" Text="{Binding Path =  Patient.Address.Number}"/>
-						<TextBlock x:Name="ViewAStrt" Style="{StaticResource TextBlockStyle}" Text="{Binding Path =  Patient.Address.Street}"/>
-						<TextBlock x:Name="ViewACity" Style="{StaticResource TextBlockStyle}" Text="{Binding Path =  Patient.Address.City}"/>
+                        <TextBlock x:Name="ViewANum"  Style="{StaticResource TextBlockStyle}" Text="{Binding Path =  PatientAddress.Number}"/>
+                        <TextBlock x:Name="ViewAStrt" Style="{StaticResource TextBlockStyle}" Text="{Binding Path =  PatientAddress.Street}"/>
+                        <TextBlock x:Name="ViewACity" Style="{StaticResource TextBlockStyle}" Text="{Binding Path =  PatientAddress.City}"/>
 					</StackPanel>
 
 					<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="50,5,10,10">
 						<Label  Style="{StaticResource PreviewLabelStyles}">Gender :</Label>
-						<TextBlock x:Name="ViewGender" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = Patient.Gender}"/>
+                        <TextBlock x:Name="ViewGender" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = PatientGender}"/>
 					</StackPanel>
 
 					<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="10,5">
 						<Label  Style="{StaticResource PreviewLabelStyles}">Date of Birth :</Label>
-                        <TextBlock x:Name="ViewDob" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = DateOfBirth}"/>
+                        <TextBlock x:Name="ViewDob" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = PatientDateOfBirth}"/>
                     </StackPanel>
 
 					<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="50,5,10,5">
 						<Label Style="{StaticResource PreviewLabelStyles}">Age :</Label>
-						<TextBlock x:Name="ViewAge" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = Patient.Age}"/>
+                        <TextBlock x:Name="ViewAge" Style="{StaticResource TextBlockStyle}" Text="{Binding Path = PatientAge}"/>
 					</StackPanel>
 				</Grid>
 			</GroupBox>
@@ -123,22 +123,22 @@
 
 					<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="10,5">
 						<Label Style="{StaticResource PreviewLabelStyles}">Department :</Label>
-						<TextBlock x:Name="ViewDepartment" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=Patient.Dept}"/>
+                        <TextBlock x:Name="ViewDepartment" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=PatientDepartment}"/>
 					</StackPanel>
 
 					<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="50,5,10,0">
 						<Label  Style="{StaticResource PreviewLabelStyles}">Ward :</Label>
-                        <TextBlock x:Name="ViewWard" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=Patient.Ward}"/>
+                        <TextBlock x:Name="ViewWard" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=PatientWard}"/>
                     </StackPanel>
 
 					<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="10,5,10,10">
 						<Label  Style="{StaticResource PreviewLabelStyles}">Doctor in Charge :</Label>
-                        <TextBlock x:Name="ViewDoc" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=Patient.DocInCharge}"/>
+                        <TextBlock x:Name="ViewDoc" Style="{StaticResource TextBlockStyle}" Text="{Binding Path=PatientDotorcInCharge}"/>
                     </StackPanel>
 				</Grid>
 			</GroupBox>
 
-			<Button Grid.Row="5" Grid.Column="2" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0" Content="Print Content"/>
+			<Button Grid.Row="5" Grid.Column="2" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,7,26,0" Content="Print Content"/>
 
 		</Grid>
 	</ScrollViewer>
