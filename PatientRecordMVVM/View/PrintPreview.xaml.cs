@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PatientRecordMVVM.ViewModel;
+using PatientRecordMVVM.Model;
 
 namespace PatientRecordMVVM.View
 {
@@ -17,9 +19,16 @@ namespace PatientRecordMVVM.View
     /// </summary>
     public partial class PrintPreview : Window
     {
+        private PrintPreviewViewModel vm;
+        private PatientRecordDetailsModel patient;
+
         public PrintPreview()
         {
             InitializeComponent();
+            //this.DataContext = new PrintPreviewViewModel(patient);
+            //vm = new PrintPreviewViewModel(patient);
+            //this.DataContext = vm;
         }
+
     }
 }

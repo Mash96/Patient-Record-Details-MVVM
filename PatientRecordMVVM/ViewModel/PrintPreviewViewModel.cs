@@ -1,6 +1,9 @@
 ﻿using System.Windows.Media;
 using PatientRecordMVVM.Model;
 using PatientRecordMVVM.Services;
+using PatientRecordMVVM.Commands;
+using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace PatientRecordMVVM.ViewModel
 {
@@ -8,14 +11,16 @@ namespace PatientRecordMVVM.ViewModel
     {
         #region Data Members
         private IWindowService m_windowService;
+        private PatientRecordDetailsModel patient;
         #endregion
 
         #region Constructors
         public PrintPreviewViewModel(PatientRecordDetailsModel patient)
         {
+            this.patient = patient;
             string id = patient.PatientId;
 
-            PatientID = id.PadRight(6).Substring(0,6);
+            PatientID = id.PadRight(6).Substring(0, 6);
             PatientName = patient.PatientName;
             PatientAddress = patient.PatientAddress;
             PatientGender = patient.PatientGender;
@@ -35,7 +40,7 @@ namespace PatientRecordMVVM.ViewModel
 
         public string PatientName { get; set; }
 
-        public PatientAddress PatientAddress { get; set; } 
+        public PatientAddress PatientAddress { get; set; }
 
         public string PatientGender { get; set; }
 
@@ -56,6 +61,24 @@ namespace PatientRecordMVVM.ViewModel
         public string CurrentDate => m_windowService.GetCurrentDate();
         #endregion
 
-        
+        #region Properties : Commands
+        public ICommand PrintCommand
+        {
+            get => new PatientRecordDetailsCommands(param => OnPrintCommandExecute(), param => OnPrintCommandCanExecute());
+        }
+        #endregion
+
+        #region Handlers : Commands
+        private void OnPrintCommandExecute()
+        {
+            m_windowService.PrintWindow(patient);
+        }
+
+        private bool OnPrintCommandCanExecute()
+        {
+            return true;
+        }
+        #endregion
+
     }
 }

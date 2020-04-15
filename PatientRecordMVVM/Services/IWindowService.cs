@@ -7,6 +7,8 @@ namespace PatientRecordMVVM.Services
         void CreateWindow(PatientRecordDetailsModel patient);
 
         string GetCurrentDate();
+
+        void PrintWindow(PatientRecordDetailsModel patientRecord);
      
     }
 }
