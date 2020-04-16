@@ -4,11 +4,6 @@ namespace PatientRecordMVVM.Services
 {
     interface IWindowService
     {
-        void CreateWindow(PatientRecordDetailsModel patient);
-
-        string GetCurrentDate();
-
-        void PrintWindow(PatientRecordDetailsModel patientRecord);
-     
+        void CreateWindow(PatientRecordDetailsModel patient);    
     }
 }

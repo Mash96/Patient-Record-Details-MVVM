@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatientRecordMVVM.Models;
+using System;
 using System.Windows.Media;
 
 namespace PatientRecordMVVM.Model
@@ -7,9 +8,10 @@ namespace PatientRecordMVVM.Model
     {
         public string PatientId { get; set; }
 
+        public string PatientRegisteredDate { get; set; }
+
         public string PatientName { get; set; }
 
-        // isuues
         public PatientAddress PatientAddress { get; set; }
 
         public string PatientGender { get; set; }

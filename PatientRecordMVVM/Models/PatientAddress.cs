@@ -1,4 +1,4 @@
-﻿namespace PatientRecordMVVM.Model
+﻿namespace PatientRecordMVVM.Models
 {
     public class PatientAddress
     {

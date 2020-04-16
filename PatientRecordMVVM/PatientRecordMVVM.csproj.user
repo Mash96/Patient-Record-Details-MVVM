@@ -7,10 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\PatientRecordDetails.xaml.cs">
+    <Compile Update="Views\PatientRecordDetails.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\PrintPreview.xaml.cs">
+    <Compile Update="Views\PrintPreview.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,10 +21,10 @@
     <Page Update="Resources\MainDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\PatientRecordDetails.xaml">
+    <Page Update="Views\PatientRecordDetails.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\PrintPreview.xaml">
+    <Page Update="Views\PrintPreview.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

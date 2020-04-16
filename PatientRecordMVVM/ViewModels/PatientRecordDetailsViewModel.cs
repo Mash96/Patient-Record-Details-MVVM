@@ -8,8 +8,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media;
 using PatientRecordMVVM.Services;
 using PatientRecordMVVM.Commands;
+using PatientRecordMVVM.Models;
 
-namespace PatientRecordMVVM.ViewModel
+namespace PatientRecordMVVM.ViewModels
 {
     class PatientRecordDetailsViewModel : INotifyPropertyChanged
     {
@@ -17,12 +18,8 @@ namespace PatientRecordMVVM.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-        #region Data Members
-        private IWindowService m_windowNavigationService;
-        #endregion
-
         #region Fields
-        private string m_patientId;
+        private IWindowService m_windowService;
         private string m_patientName;
         private string m_patientGender;
         private int m_patientAge;
@@ -38,22 +35,22 @@ namespace PatientRecordMVVM.ViewModel
         public PatientRecordDetailsViewModel()
         {
 
-            this.Department = new ObservableCollection<string>
+            Department = new ObservableCollection<string>
             {
                  "Orthopedic", "Cardiology", "Oncology", "Obstetrics and Gynaecology", "Cardiovascular ICU"
             };
 
-            this.Ward = new ObservableCollection<string>
+            Ward = new ObservableCollection<string>
             {
                 "Cardiology Ward", "Neurology Ward", "Obstetrics and Gynaecology Ward", "Oncology Ward", "Maternity Ward"
-            };           
+            };
 
-            this.DocInCharge = new ObservableCollection<string> 
+            DocInCharge = new ObservableCollection<string>
             {
                 "Dr. Asala Perera", "Dr. Janaka Thisera", "Dr. Manik Perera", "Dr. Seetha Fonseka", "Dr. Athula Dissanayake"
             };
 
-            m_windowNavigationService = new WindowService();
+            m_windowService = new WindowService();
 
             Patient = new PatientRecordDetailsModel();
 
@@ -65,21 +62,11 @@ namespace PatientRecordMVVM.ViewModel
         #region Properties
         public PatientRecordDetailsModel Patient { get; set; }
 
-        public ObservableCollection<String> Department { get; set; }
+        public ObservableCollection<string> Department { get; set; }
 
-        public ObservableCollection<String> Ward { get; set; }
+        public ObservableCollection<string> Ward { get; set; }
 
-        public ObservableCollection<String> DocInCharge { get; set; }
-
-        public string PatientID
-        {
-            get => m_patientId;
-            set
-            {
-                m_patientId = value;
-                OnPropertyChange("PatientID");
-            }
-        }
+        public ObservableCollection<string> DocInCharge { get; set; }
 
         public string PatientName
         {
@@ -91,7 +78,6 @@ namespace PatientRecordMVVM.ViewModel
             }
         }
 
-        //#issue
         public PatientAddress PatientAddress
         {
             get => m_patientAddress;
@@ -171,10 +157,8 @@ namespace PatientRecordMVVM.ViewModel
                 OnPropertyChange("PatientDotorcInCharge");
             }
         }
-        #endregion
 
-        #region <PatientRecordDetails> Members
-        public string CurrentDate => m_windowNavigationService.GetCurrentDate();
+        public string CurrentDate => GetCurrentDate();
 
         public string GuidGenerator => GetGuid();
         #endregion
@@ -182,7 +166,7 @@ namespace PatientRecordMVVM.ViewModel
         #region Properties : Commands
         public ICommand PreviewCommand
         {
-            get => new PatientRecordDetailsCommands(param => this.OnPreviewCommandExecute(), param => OnPreviewCommandCanExecute());
+            get => new PatientRecordDetailsCommands(param => OnPreviewCommandExecute(), param => OnPreviewCommandCanExecute());
         }
 
         public ICommand GetPatientGenderCommand
@@ -201,21 +185,32 @@ namespace PatientRecordMVVM.ViewModel
         }
         #endregion
 
-
         #region Handlers : Members       
         private string GetGuid()
         {
             Guid guid = Guid.NewGuid();
 
             string guidString = guid.ToString();
-            PatientID = guidString;
+            Patient.PatientId = guidString;
 
-            return PatientID;
+            return Patient.PatientId;
+        }
+
+        private string GetCurrentDate()
+        {
+            DateTime dateTime = DateTime.Now;
+
+            string date = dateTime.ToString("d");
+            string time = dateTime.ToString("T");
+            string Date_Time = date + " " + time;
+            Patient.PatientRegisteredDate = Date_Time;
+
+            return Patient.PatientRegisteredDate;
+
         }
 
         private PatientRecordDetailsModel PopulatePatientDetails()
         {
-            Patient.PatientId = PatientID;
             Patient.PatientName = PatientName;
             Patient.PatientAddress = PatientAddress;
             Patient.PatientGender = PatientGender;
@@ -234,7 +229,7 @@ namespace PatientRecordMVVM.ViewModel
         private void OnPreviewCommandExecute()
         {
             PatientRecordDetailsModel getPatientDetails = PopulatePatientDetails();
-            m_windowNavigationService.CreateWindow(getPatientDetails);
+            m_windowService.CreateWindow(getPatientDetails);
         }
 
         private bool OnPreviewCommandCanExecute()
@@ -275,18 +270,18 @@ namespace PatientRecordMVVM.ViewModel
         private void OnGetPatientImageCommandExecute()
         {
 
-            OpenFileDialog dlg = new OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
                 Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
                             "All files (*.*)|*.*"
             };
-            if (dlg.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == true)
             {
-                String m_fileName = dlg.FileName;
+                string m_fileName = openFileDialog.FileName;
                 BitmapImage bitmap = new BitmapImage(new Uri(m_fileName));
                 PatientImageSource = bitmap;
-                
+
             }
         }
         #endregion

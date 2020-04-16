@@ -1,7 +1,6 @@
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.csprojAssemblyReference.cache
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Resources\MainDictionary.baml
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\MainWindow.g.cs
-C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\View\PatientRecordDetails.g.cs
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM_MarkupCompile.cache
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM_MarkupCompile.lref
@@ -13,7 +12,6 @@ C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\bin\Debug\net
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\bin\Debug\netcoreapp3.1\PatientRecordMVVM.pdb
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\App.baml
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\MainWindow.baml
-C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\View\PatientRecordDetails.baml
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.g.resources
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.csproj.CoreCompileInputs.cache
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.AssemblyInfoInputs.cache
@@ -21,5 +19,7 @@ C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\net
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.dll
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.pdb
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.genruntimeconfig.cache
-C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\View\PrintPreview.g.cs
-C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\View\PrintPreview.baml
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PatientRecordDetails.g.cs
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreview.g.cs
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PatientRecordDetails.baml
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreview.baml
