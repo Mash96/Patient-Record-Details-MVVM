@@ -1,7 +1,4 @@
-﻿using PatientRecordMVVM.Model;
-using PatientRecordMVVM.Views;
-using PatientRecordMVVM.ViewModel;
-using System;
+﻿using System;
 using System.Printing;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,72 +6,78 @@ using System.Windows.Media;
 
 namespace PatientRecordMVVM.Utilities
 {
-    class PrintUtility
+    static class PrintUtility
     {
-        public static void DefaultPrintPatientDetails(PatientRecordDetailsModel patient)
+        #region Fields
+        private static PrintDialog m_printDialog;
+        private static PrintCapabilities m_printCapabilities;
+        #endregion
+
+        #region Constructors
+        static PrintUtility()
         {
-            PrintPreview printPreview = new PrintPreview();
-            printPreview.DataContext = new PrintPreviewViewModel(patient);
+            m_printDialog = new PrintDialog();
+        }
+        #endregion
 
-            PrintDialog printDialog = new PrintDialog();
-            PrintQueue printQueue = new LocalPrintServer().GetPrintQueue("Microsoft Print To PDF");
-            PrintCapabilities printCapabilities = printQueue.GetPrintCapabilities();
-            printDialog.PrintQueue = printQueue;
+        #region Members
+        public static PrintDialog DefaultPrintAdjustments()
+        {
+            PrintQueue printQueue = new LocalPrintServer().DefaultPrintQueue;
+            m_printCapabilities = printQueue.GetPrintCapabilities();
+            m_printDialog.PrintQueue = printQueue;
+            return m_printDialog;           
+        }
 
-            Transform originalScale = printPreview.LayoutTransform;
+        public static PrintDialog ConfigureAndPrintAdjustments()
+        {
+            if (m_printDialog.ShowDialog() == true)
+            {
+                m_printCapabilities = m_printDialog.PrintQueue.GetPrintCapabilities(m_printDialog.PrintTicket);
+                return m_printDialog;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Handlers: Members
+        private static void AdjustPrinterScalesAndPrint(Visual visual)
+        {
+            FrameworkElement frameworkElement = visual as FrameworkElement;
+
+            Transform originalScale = frameworkElement.LayoutTransform;
+            Size originalSize = new Size(frameworkElement.ActualWidth, frameworkElement.ActualHeight);
+
             // get the scale of the printer with respect to the visual
-            double scale = Math.Min(printCapabilities.PageImageableArea.ExtentWidth / printPreview.ActualWidth, printCapabilities.PageImageableArea.ExtentHeight / printPreview.ActualHeight);
+            double scale = Math.Min(m_printCapabilities.PageImageableArea.ExtentWidth / originalSize.Width, m_printCapabilities.PageImageableArea.ExtentHeight / originalSize.Height);
+
+            if (scale > 1.0)
+            {
+                // keep the original size and layout if printable area is greater than the object being printed
+                scale = 1.0;
+            }
 
             // transform the visual into calculated scale
-            printPreview.LayoutTransform = new ScaleTransform(scale, scale);
+            frameworkElement.LayoutTransform = new ScaleTransform(scale, scale);
 
             // get the size of the printer page
-            Size size = new Size(printCapabilities.PageImageableArea.ExtentWidth, printCapabilities.PageImageableArea.ExtentHeight);
+            Size newSize = new Size(m_printCapabilities.PageImageableArea.ExtentWidth, m_printCapabilities.PageImageableArea.ExtentHeight);
 
             // update the layout of the visual to printer page
-            printPreview.Measure(size);
-            printPreview.Arrange(new Rect(new Point(printCapabilities.PageImageableArea.OriginWidth, printCapabilities.PageImageableArea.OriginHeight), size));
+            frameworkElement.Measure(newSize);
+            frameworkElement.Arrange(new Rect(new Point(m_printCapabilities.PageImageableArea.OriginWidth, m_printCapabilities.PageImageableArea.OriginHeight), newSize));
 
             // print the visual
-            printDialog.PrintVisual(printPreview.MainSubGrid, "PrintPreview");
+            m_printDialog.PrintVisual(frameworkElement as Visual, "PrintPreview");
 
             // apply the original transform
-            printPreview.LayoutTransform = originalScale;
+            frameworkElement.LayoutTransform = originalScale;
+            //frameworkElement.Measure(originalSize);
+            //frameworkElement.Arrange(new Rect(new Point(0, 0), oldSize));
         }
-
-        public static void ConfigureAndPrintPatientDetails(PatientRecordDetailsModel patient)
-        {
-            PrintPreview printPreview = new PrintPreview();
-            printPreview.DataContext = new PrintPreviewViewModel(patient);
-
-            PrintDialog printDialog = new PrintDialog();
-
-            if (printDialog.ShowDialog() == true)
-            {
-                Transform originalScale = printPreview.LayoutTransform;
-
-                // get the capabilities of selected printer
-                PrintCapabilities printCapabilities = printDialog.PrintQueue.GetPrintCapabilities(printDialog.PrintTicket);
-
-                // get the scale of the printer with respect to the visual
-                double scale = Math.Min(printCapabilities.PageImageableArea.ExtentWidth / printPreview.ActualWidth, printCapabilities.PageImageableArea.ExtentHeight / printPreview.ActualHeight);
-
-                // transform the visual into calculated scale
-                printPreview.LayoutTransform = new ScaleTransform(scale, scale);
-
-                // get the size of the printer page
-                Size size = new Size(printCapabilities.PageImageableArea.ExtentWidth, printCapabilities.PageImageableArea.ExtentHeight);
-
-                // update the layout of the visual to printer page
-                printPreview.Measure(size);
-                printPreview.Arrange(new Rect(new Point(printCapabilities.PageImageableArea.OriginWidth, printCapabilities.PageImageableArea.OriginHeight), size));
-
-                // print the visual
-                printDialog.PrintVisual(printPreview.MainSubGrid, "PrintPreview");
-
-                // apply the original transform
-                printPreview.LayoutTransform = originalScale;
-            }        
-        }
+        #endregion
     }
 }

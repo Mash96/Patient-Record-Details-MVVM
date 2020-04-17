@@ -63,28 +63,30 @@ namespace PatientRecordMVVM.ViewModel
         #endregion
 
         #region Properties : Commands
-        public ICommand DefaultPrintCommand => new PatientRecordDetailsCommands(param => OnDefaultPrintCommandExecute(), param => OnDefaultPrintCommandCanExecute());
+        public ICommand DefaultPrintCommand => new PatientRecordDetailsCommands(OnDefaultPrintCommandExecute, OnDefaultPrintCommandCanExecute);
 
-        public ICommand ConfigureAndPrintCommand => new PatientRecordDetailsCommands(param => OnConfigureAndPrintCommandExecute(), param => OnConfigureAndPrintCommandCanExecute());
+        public ICommand ConfigureAndPrintCommand => new PatientRecordDetailsCommands(OnConfigureAndPrintCommandExecute, OnConfigureAndPrintCommandCanExecute);
         #endregion
 
         #region Handlers : Commands
-        private void OnDefaultPrintCommandExecute()
+        private void OnDefaultPrintCommandExecute(object parameter)
         {
-            PrintUtility.DefaultPrintPatientDetails(patient);
+            PrintDialog printDialog =  PrintUtility.DefaultPrintAdjustments();
+            printDialog.PrintVisual((Visual)parameter, "Print");
         }
 
-        private bool OnDefaultPrintCommandCanExecute()
+        private bool OnDefaultPrintCommandCanExecute(object parameter)
         {
             return true;
         }
 
-        private void OnConfigureAndPrintCommandExecute()
+        private void OnConfigureAndPrintCommandExecute(object parameter)
         {
-            PrintUtility.ConfigureAndPrintPatientDetails(patient);
+            PrintDialog printDialog =  PrintUtility.ConfigureAndPrintAdjustments();
+            printDialog.PrintVisual((Visual)parameter, "Print");
         }
 
-        private bool OnConfigureAndPrintCommandCanExecute()
+        private bool OnConfigureAndPrintCommandCanExecute(object parameter)
         {
             return true;
         }

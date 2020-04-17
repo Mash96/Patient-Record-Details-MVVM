@@ -34,7 +34,6 @@ namespace PatientRecordMVVM.ViewModels
         #region Constructors
         public PatientRecordDetailsViewModel()
         {
-
             Department = new ObservableCollection<string>
             {
                  "Orthopedic", "Cardiology", "Oncology", "Obstetrics and Gynaecology", "Cardiovascular ICU"
@@ -54,7 +53,6 @@ namespace PatientRecordMVVM.ViewModels
 
             Patient = new PatientRecordDetailsModel();
 
-            // Has an issue
             PatientAddress = new PatientAddress();
         }
         #endregion
@@ -206,7 +204,6 @@ namespace PatientRecordMVVM.ViewModels
             Patient.PatientRegisteredDate = Date_Time;
 
             return Patient.PatientRegisteredDate;
-
         }
 
         private PatientRecordDetailsModel PopulatePatientDetails()
@@ -269,7 +266,6 @@ namespace PatientRecordMVVM.ViewModels
 
         private void OnGetPatientImageCommandExecute()
         {
-
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
@@ -281,7 +277,6 @@ namespace PatientRecordMVVM.ViewModels
                 string m_fileName = openFileDialog.FileName;
                 BitmapImage bitmap = new BitmapImage(new Uri(m_fileName));
                 PatientImageSource = bitmap;
-
             }
         }
         #endregion

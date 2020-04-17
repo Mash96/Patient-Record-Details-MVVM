@@ -11,7 +11,6 @@ namespace PatientRecordMVVM.Services
 {
     class WindowService : IWindowService
     {
-
         public void CreateWindow(PatientRecordDetailsModel patient)
         {
             PrintPreview printPreview = new PrintPreview();
