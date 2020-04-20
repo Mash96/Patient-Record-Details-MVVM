@@ -231,7 +231,7 @@ namespace PatientRecordMVVM.ViewModels
 
         private bool OnPreviewCommandCanExecute()
         {
-            return PatientName != null;
+            return PatientName != null && PatientAddress != null && PatientGender != null;
         }
 
         private bool OnGetPatientGenderCommandCanExecute(object parameter)
@@ -246,7 +246,7 @@ namespace PatientRecordMVVM.ViewModels
 
         private bool OnClearPatientCommandCanExecute()
         {
-            return PatientName != null || PatientAddress != null || PatientGender != null || PatientAge != 0;
+            return PatientName != null && PatientAddress != null && PatientGender != null;
         }
 
         private void OnClearPatientCommandExecute()

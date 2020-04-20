@@ -29,25 +29,25 @@
 
             <!--Patient Id block-->
             <!--StackPanelPatientID-->
-            <StackPanel Grid.ColumnSpan="2" Style="{StaticResource StackpanelStyle}" >
+            <StackPanel Grid.ColumnSpan="2" Style="{StaticResource StackpanelStyle}">
                 <Label FontSize="16" FontWeight="Bold" Foreground="White">
                     Patient ID :
                 </Label>
-                <Label FontSize="16" Foreground="White" Margin="5,0" Content="{Binding Path=GuidGenerator}"/>
+                <Label Content="{Binding Path=GuidGenerator}" FontSize="16" Foreground="White" Margin="5,0"/>
             </StackPanel>
 
             <!--Date block-->
             <!--StackPanelDate-->
-            <StackPanel  Grid.ColumnSpan="3" HorizontalAlignment="Right" Style="{StaticResource StackpanelStyle}" >
+            <StackPanel  Grid.ColumnSpan="3"  Style="{StaticResource StackpanelStyle}" HorizontalAlignment="Right">
                 <Label FontSize="16" FontWeight="Bold" Foreground="White">
                     Date :
                 </Label>
-            <Label Name="date_time" FontSize="16" Foreground="White" Margin="5,0" Content="{Binding Path=CurrentDate}"/>
+                <Label Name="date_time" Content="{Binding Path=CurrentDate}" FontSize="16" Foreground="White" Margin="5,0"/>
             </StackPanel>
 
             <!--Title block-->
             <!--TextBlockTopic-->
-            <TextBlock Grid.Row="1" Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" TextDecorations="Underline" Foreground="White" MinWidth="200" >
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="3" FontSize="20" FontWeight="Bold" Foreground="White" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200">
                 Patient Registration Information
             </TextBlock>
 
@@ -76,69 +76,69 @@
 
                 <!--Name block-->
                 <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource LabelStyles}">Name :</Label>
-                <TextBox Name="fName" Grid.Row="0" Grid.Column="2"  Style="{StaticResource TextBoxStyle}" Text="{Binding Path = PatientName}"/>
+                <TextBox Name="fName" Grid.Row="0" Grid.Column="2" Text="{Binding Path = PatientName}" Style="{StaticResource TextBoxStyle}"/>
 
                 <!--Address block-->
-                <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource LabelStyles}" Margin="0,7,15,0">Address :</Label>
-                <StackPanel Grid.Row="1" Grid.Column="2"  VerticalAlignment="Center" Orientation="Vertical" Margin="0,2">
+                <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource LabelStyles}" VerticalAlignment="Top"  Margin="0,7,15,0">Address :</Label>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center"  Margin="0,2">
                     <DockPanel LastChildFill="True" Margin="0,5">
                         <Label Style="{StaticResource AddressLabelStyles}" HorizontalAlignment="Right">Number :</Label>
-                        <TextBox Name="Number" Style="{StaticResource TextBoxStyle}" Text="{Binding Path =  PatientAddress.Number}" />
+                        <TextBox Name="Number" Text="{Binding Path =  PatientAddress.Number}" Style="{StaticResource TextBoxStyle}"/>
                     </DockPanel>
                     <DockPanel LastChildFill="True" Margin="0,5">
                         <Label Style="{StaticResource AddressLabelStyles}" Margin="12,0">Street :</Label>
-                    <TextBox Name="Street" Style="{StaticResource TextBoxStyle}" Margin="3,0,0,0" Text="{Binding Path =  PatientAddress.Street}"/>
+                        <TextBox Name="Street" Text="{Binding Path =  PatientAddress.Street}" Style="{StaticResource TextBoxStyle}" Margin="3,0,0,0" />
                     </DockPanel>
                     <DockPanel LastChildFill="True" Margin="0,5">
                         <Label Style="{StaticResource AddressLabelStyles}" Margin="24,0">City :</Label>
-                    <TextBox Name="City" Style="{StaticResource TextBoxStyle}" Margin="-9,0,0,0" Text="{Binding Path = PatientAddress.City}"/>
+                        <TextBox Name="City" Text="{Binding Path = PatientAddress.City}" Style="{StaticResource TextBoxStyle}" Margin="-9,0,0,0"/>
                     </DockPanel>
                 </StackPanel>
 
                 <!--Gender block-->
                 <Label  Grid.Row="2" Grid.Column="1" Style="{StaticResource LabelStyles}">Gender :</Label>
-                <StackPanel Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,6,0,0">
-                    <RadioButton Name="male" Content="Male" FontSize="14" MinWidth="100" Padding="5,-2.5" Command="{Binding Path=GetPatientGenderCommand}" CommandParameter="{Binding ElementName=male, Path=Content}"/>
-                    <RadioButton Name="female" Content="Female" FontSize="14" Padding="5,-2.5" Command="{Binding Path=GetPatientGenderCommand}" CommandParameter="{Binding ElementName=female, Path=Content}"/> 
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,6,0,0">
+                    <RadioButton Name="male" Command="{Binding Path=GetPatientGenderCommand}" CommandParameter="{Binding ElementName=male, Path=Content}" Content="Male" FontSize="14" Padding="5,-2.5" MinWidth="100"/>
+                    <RadioButton Name="female" Command="{Binding Path=GetPatientGenderCommand}" CommandParameter="{Binding ElementName=female, Path=Content}" Content="Female" FontSize="14" Padding="5,-2.5"/> 
                 </StackPanel>
 
                 <!--Birthdate block-->
                 <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource LabelStyles}">Birthdate :</Label>
-                <DatePicker Name="Date" Grid.Row="3" Grid.Column="2" Style="{StaticResource TextBoxStyle}" SelectedDate ="{Binding Path = PatientDateOfBirth}"/>
+                <DatePicker Name="Date" Grid.Row="3" Grid.Column="2" SelectedDate ="{Binding Path = PatientDateOfBirth}" Style="{StaticResource TextBoxStyle}"/>
 
                 <!--Age block-->
                 <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource LabelStyles}">Age :</Label>
-                <TextBox  Name="Age" Grid.Row="4" Grid.Column="2" Style="{StaticResource TextBoxStyle}" Text="{Binding Path = PatientAge}"/>
+                <TextBox  Name="Age" Grid.Row="4" Grid.Column="2" Text="{Binding Path = PatientAge}" Style="{StaticResource TextBoxStyle}"/>
 
                 <!--Image block-->
                 <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource LabelStyles}">Image :</Label>
-                <DockPanel Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" MinHeight="30" LastChildFill="True">
-                    <Button DockPanel.Dock="Left" Style="{StaticResource ButtonStyle}" Content="Browse" Margin="0,0,5,0" Command="{Binding Path=GetPatientImageCommand, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBox Name="FileBrowser" DockPanel.Dock="Right" Style="{StaticResource TextBoxStyle}"  HorizontalAlignment="Stretch" Text="{Binding Path= PatientImageSource}"/>
+                <DockPanel Grid.Row="5" Grid.Column="2" LastChildFill="True" VerticalAlignment="Center" MinHeight="30">
+                    <Button DockPanel.Dock="Left" Command="{Binding Path=GetPatientImageCommand, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ButtonStyle}" Content="Browse" Margin="0,0,5,0"/>
+                    <TextBox Name="FileBrowser" DockPanel.Dock="Right" Text="{Binding Path= PatientImageSource}" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch"/>
                 </DockPanel>
 
                 <!--Image view block-->
-                <Image Name="ImageViewer" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" MinWidth="95" MaxWidth="150" MinHeight="95" MaxHeight="150" Margin="0,0,0,10" Source ="{Binding Path= PatientImageSource}"/>
+                <Image Name="ImageViewer" Grid.Row="6" Grid.Column="2" Source ="{Binding Path= PatientImageSource}" HorizontalAlignment="Left" MinWidth="95" MaxWidth="150" MinHeight="95" MaxHeight="150" Margin="0,0,0,10"/>
 
 
                 <!--Department block-->
                 <Label Grid.Row="7" Grid.Column="1" Style="{StaticResource LabelStyles}">Department :</Label>
-                <ComboBox Name="Department" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" FontSize="14" MinHeight="30" BorderBrush="LightGray" BorderThickness="1" ItemsSource="{Binding Department}" SelectedItem="{Binding Path = PatientDepartment}"/>
+                <ComboBox Name="Department" Grid.Row="7" Grid.Column="2" ItemsSource="{Binding Department}" SelectedItem="{Binding Path = PatientDepartment}" FontSize="14" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Center" MinHeight="30"/>
 
                 <!--Ward Block-->
                 <Label Grid.Row="8" Grid.Column="1" Style="{StaticResource LabelStyles}">Ward :</Label>
-                <ComboBox Name="Ward" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" FontSize="14" MinHeight="30" BorderBrush="LightGray" BorderThickness="1" ItemsSource="{Binding Ward}" SelectedItem="{Binding Path = PatientWard}"/>
+                <ComboBox Name="Ward" Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Ward}" SelectedItem="{Binding Path = PatientWard}" FontSize="14" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Center" MinHeight="30"/>
 
                 <!--Doctor Block-->
                 <Label  Grid.Row="9" Grid.Column="1" Style="{StaticResource LabelStyles}">Doctor In Charge :</Label>
-                <ComboBox Name="Doctor" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" FontSize="14" MinHeight="30" BorderBrush="LightGray" BorderThickness="1" ItemsSource="{Binding DocInCharge}" SelectedItem="{Binding Path = PatientDotorcInCharge}"/>
+                <ComboBox Name="Doctor" Grid.Row="9" Grid.Column="2" ItemsSource="{Binding DocInCharge}" SelectedItem="{Binding Path = PatientDotorcInCharge}" FontSize="14" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Center" MinHeight="30"/>
 
             </Grid>
 
             <!--Buttons Section-->
-            <StackPanel Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="20,10,26,0" >
-                <Button Style="{StaticResource ButtonStyle}" Margin="0,0,5,0" Content="Print Preview" Command="{Binding Path=PreviewCommand}" />
-                <Button Style="{StaticResource ButtonStyle}" Content="Clear" Command="{Binding Path=ClearPatientCommand}"/>
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0" >
+                <Button Command="{Binding Path=PreviewCommand}" Style="{StaticResource ButtonStyle}" Content="Print Preview" Margin="0,0,5,0"/>
+                <Button Command="{Binding Path=ClearPatientCommand}" Style="{StaticResource ButtonStyle}" Content="Clear"/>
             </StackPanel>
 
         </Grid>

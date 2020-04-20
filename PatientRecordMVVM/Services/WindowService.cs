@@ -1,11 +1,7 @@
 ﻿using PatientRecordMVVM.Views;
 using PatientRecordMVVM.ViewModel;
 using PatientRecordMVVM.Model;
-using System;
-using System.Windows.Controls;
-using System.Printing;
 using System.Windows;
-using System.Windows.Media;
 
 namespace PatientRecordMVVM.Services
 {
@@ -15,7 +11,7 @@ namespace PatientRecordMVVM.Services
         {
             PrintPreview printPreview = new PrintPreview();
             printPreview.DataContext = new PrintPreviewViewModel(patient);
-            printPreview.Show();
+            printPreview.ShowDialog();
         }
     }
 }

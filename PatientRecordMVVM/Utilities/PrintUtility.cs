@@ -1,8 +1,5 @@
-﻿using System;
-using System.Printing;
-using System.Windows;
+﻿using System.Printing;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace PatientRecordMVVM.Utilities
 {
@@ -26,27 +23,28 @@ namespace PatientRecordMVVM.Utilities
             PrintQueue printQueue = new LocalPrintServer().DefaultPrintQueue;
             m_printCapabilities = printQueue.GetPrintCapabilities();
             m_printDialog.PrintQueue = printQueue;
+            PrintDialog PrintDialog = AdjustPrinterCapabilities();
+
             return m_printDialog;           
         }
 
         public static PrintDialog ConfigureAndPrintAdjustments()
         {
-            if (m_printDialog.ShowDialog() == true)
-            {
-                m_printCapabilities = m_printDialog.PrintQueue.GetPrintCapabilities(m_printDialog.PrintTicket);
-                return m_printDialog;
-            }
-            else
-            {
-                return null;
-            }
+            m_printCapabilities = m_printDialog.PrintQueue.GetPrintCapabilities(m_printDialog.PrintTicket);            
+            PrintDialog printDialog = AdjustPrinterCapabilities();
+
+            return printDialog;
         }
         #endregion
 
         #region Handlers: Members
-        private static void AdjustPrinterScalesAndPrint(Visual visual)
+        private static PrintDialog AdjustPrinterCapabilities()
         {
-            
+            PrintTicket printTicket = new PrintTicket();
+            printTicket.PageOrientation = PageOrientation.Portrait;
+            m_printDialog.PrintTicket = m_printDialog.PrintQueue.MergeAndValidatePrintTicket(m_printDialog.PrintTicket, printTicket).ValidatedPrintTicket;
+
+            return m_printDialog;
         }
         #endregion
     }

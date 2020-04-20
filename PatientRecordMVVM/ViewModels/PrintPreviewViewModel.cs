@@ -83,7 +83,11 @@ namespace PatientRecordMVVM.ViewModel
         private void OnConfigureAndPrintCommandExecute(object parameter)
         {
             PrintDialog printDialog =  PrintUtility.ConfigureAndPrintAdjustments();
-            printDialog.PrintVisual((Visual)parameter, "Print");
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual((Visual)parameter, "Print");
+            }
+            
         }
 
         private bool OnConfigureAndPrintCommandCanExecute(object parameter)
