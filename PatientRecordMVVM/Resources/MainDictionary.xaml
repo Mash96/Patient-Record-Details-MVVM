@@ -34,7 +34,6 @@
     <Style x:Key="AddressLabelStyles" TargetType="{x:Type Label}" BasedOn="{StaticResource LabelStyles}">
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="Gray"/>
     </Style>
 
     <!--Style for Preview labels-->

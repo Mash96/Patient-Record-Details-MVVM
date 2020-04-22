@@ -42,7 +42,10 @@ namespace PatientRecordMVVM.Utilities
         {
             PrintTicket printTicket = new PrintTicket();
             printTicket.PageOrientation = PageOrientation.Portrait;
-            m_printDialog.PrintTicket = m_printDialog.PrintQueue.MergeAndValidatePrintTicket(m_printDialog.PrintTicket, printTicket).ValidatedPrintTicket;
+            printTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.ISOA4, 2480, 3508);
+            System.Printing.ValidationResult validationResult = m_printDialog.PrintQueue.MergeAndValidatePrintTicket(m_printDialog.PrintTicket, printTicket);
+            m_printDialog.PrintTicket = validationResult.ValidatedPrintTicket;
+            m_printDialog.PrintQueue.Commit();
 
             return m_printDialog;
         }

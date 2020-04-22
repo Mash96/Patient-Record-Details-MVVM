@@ -1,7 +1,6 @@
 ﻿using PatientRecordMVVM.Views;
 using PatientRecordMVVM.ViewModel;
 using PatientRecordMVVM.Model;
-using System.Windows;
 
 namespace PatientRecordMVVM.Services
 {
