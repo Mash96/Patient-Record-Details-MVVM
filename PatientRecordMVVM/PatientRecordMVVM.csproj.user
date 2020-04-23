@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\HomeCareMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\PatientRecordDetails.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HomeCareMain.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PatientRecordDetails.xaml">

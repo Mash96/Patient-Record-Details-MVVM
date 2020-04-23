@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "aQTMdlIE11RIGNUO68zEGUw6R9U3D3NTJf67AhJG7EKwSoK8lALbe2sPA6rpie46vvzKGr4qCccnXND+XQA13A==",
+  "dgSpecHash": "Sqf7Ve+Wxvq2YtOf1B7SGVw13A4eejNAZqd2K1gJcpCJUa7YO2OOapRFSK08iFT9Ynx5NU1CXthWYiosqys/WQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maneesha\\source\\repos\\PatientRecordMVVM\\PatientRecordMVVM\\PatientRecordMVVM.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Maneesha\\.nuget\\packages\\materialdesigncolors\\1.2.3\\materialdesigncolors.1.2.3.nupkg.sha512",
+    "C:\\Users\\Maneesha\\.nuget\\packages\\materialdesignthemes\\3.1.0\\materialdesignthemes.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

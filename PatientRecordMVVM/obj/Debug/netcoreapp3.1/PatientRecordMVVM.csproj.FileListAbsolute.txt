@@ -23,3 +23,8 @@ C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\net
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreview.g.cs
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PatientRecordDetails.baml
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreview.baml
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\HomeCareMain.g.cs
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\HomeCareMain.baml
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.csproj.CopyComplete

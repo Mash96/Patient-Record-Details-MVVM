@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\App.xaml
-4544645163
+5570589962
 
-14546763742
-1921654412462
-MainWindow.xaml;Resources\MainDictionary.xaml;Views\PatientRecordDetails.xaml;Views\PrintPreview.xaml;
+16-1201936560
+194-1211270713
+MainWindow.xaml;Resources\MainDictionary.xaml;Views\HomeCareMain.xaml;Views\PatientRecordDetails.xaml;Views\PrintPreview.xaml;
 
 False
 
