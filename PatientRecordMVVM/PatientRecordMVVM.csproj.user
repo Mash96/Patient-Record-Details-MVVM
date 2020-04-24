@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddPatientRecordDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HomeCareMain.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\PrintPreview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PrintPreviewControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,6 +30,9 @@
     <Page Update="Resources\MainDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AddPatientRecordDetails.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\HomeCareMain.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -31,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PrintPreview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PrintPreviewControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

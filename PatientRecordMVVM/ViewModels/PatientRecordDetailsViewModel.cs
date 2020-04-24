@@ -20,6 +20,7 @@ namespace PatientRecordMVVM.ViewModels
 
         #region Fields
         private IWindowService m_windowService;
+        private HomeCareMainViewModel m_homeCareMainWindow;
         private string m_patientName;
         private string m_patientGender;
         private int m_patientAge;
@@ -226,7 +227,9 @@ namespace PatientRecordMVVM.ViewModels
         private void OnPreviewCommandExecute()
         {
             PatientRecordDetailsModel getPatientDetails = PopulatePatientDetails();
-            m_windowService.CreateWindow(getPatientDetails);
+            // calling the print preview window from here
+            //m_homeCareMainWindow.
+            //m_windowService.CreateWindow(getPatientDetails);
         }
 
         private bool OnPreviewCommandCanExecute()

@@ -4,6 +4,6 @@ namespace PatientRecordMVVM.Services
 {
     interface IWindowService
     {
-        void CreateWindow(PatientRecordDetailsModel patient);    
+        void CreateWindow(PatientRecordDetailsModel patient);
     }
 }

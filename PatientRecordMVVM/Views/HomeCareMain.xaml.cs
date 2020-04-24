@@ -6,9 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using PatientRecordMVVM.ViewModels;
 
 namespace PatientRecordMVVM.Views
 {
@@ -19,7 +17,15 @@ namespace PatientRecordMVVM.Views
     {
         public HomeCareMain()
         {
+
             InitializeComponent();
+            this.DataContext = new HomeCareMainViewModel();
+            PatientRecordDetailsViewModel patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();           
+            AddPatient.DataContext = patientRecordDetailsViewModel;
+            AddPatient.Visibility = Visibility.Hidden;
+
+            //PrintPreviewViewModel printPreviewViewModel -new PrintPreviewViewModel(patient);
+            //PrintPreview.Visibility = Visibility.Hidden;
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

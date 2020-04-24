@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using PatientRecordMVVM.Utilities;
 using PatientRecordMVVM.Models;
 
-namespace PatientRecordMVVM.ViewModel
+namespace PatientRecordMVVM.ViewModels
 {
     class PrintPreviewViewModel
     {
@@ -71,7 +71,7 @@ namespace PatientRecordMVVM.ViewModel
         #region Handlers : Commands
         private void OnDefaultPrintCommandExecute(object parameter)
         {
-            PrintDialog printDialog =  PrintUtility.DefaultPrintAdjustments();
+            PrintDialog printDialog = PrintUtility.DefaultPrintAdjustments();
             printDialog.PrintVisual((Visual)parameter, "Print");
         }
 
@@ -82,12 +82,12 @@ namespace PatientRecordMVVM.ViewModel
 
         private void OnConfigureAndPrintCommandExecute(object parameter)
         {
-            PrintDialog printDialog =  PrintUtility.ConfigureAndPrintAdjustments();
+            PrintDialog printDialog = PrintUtility.ConfigureAndPrintAdjustments();
             if (printDialog.ShowDialog() == true)
             {
                 printDialog.PrintVisual((Visual)parameter, "Print");
             }
-            
+
         }
 
         private bool OnConfigureAndPrintCommandCanExecute(object parameter)
