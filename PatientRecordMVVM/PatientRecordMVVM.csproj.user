@@ -22,6 +22,9 @@
     <Compile Update="Views\PrintPreviewControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PrintPreviewWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -43,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PrintPreviewControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PrintPreviewWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -6,8 +6,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="{materialDesign:MaterialDesignFont}"
         xmlns:local="clr-namespace:PatientRecordMVVM.Views"
+        xmlns:vm ="clr-namespace:PatientRecordMVVM.ViewModels"
         mc:Ignorable="d"
-        Title="HomeCareMain" Height="850" Width="1500" Foreground="White">
+        Title="HomeCareMain" Height="850" Width="1500" Foreground="White" ResizeMode="CanResizeWithGrip">
+    <Window.DataContext>
+        <vm:HomeCareMainViewModel />
+    </Window.DataContext>
+    
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridSideMenu">
@@ -45,7 +50,7 @@
         </Grid.RowDefinitions>
         
         <Image x:Name="Logo" Grid.Row="1" Grid.ColumnSpan="3"  Source="/PatientRecordMVVM;component/Images/logo.jpg" Opacity="0.12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Grid Grid.Row="0" Grid.ColumnSpan="3" Height="60" VerticalAlignment="Top" Background="#2c8a93">
+        <Grid Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource GridShadow}" Height="60" VerticalAlignment="Top" Background="#1f3e66">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Image Source="/PatientRecordMVVM;component/Images/logo.jpg" Width="30" Height="30" Margin="0,0,20,0"/>
                 <TextBlock Text="HOME CARE" FontSize="22" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -53,13 +58,13 @@
             <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10">
                 <StackPanel Width="150">
                     <Button Content="Settings"/>
-                    <Separator/>
+                    <Separator/> 
                     <Button Command="{Binding Path=LogoutCommand}" Content="Logout"/>
                 </StackPanel>
             </materialDesign:PopupBox>
         </Grid>
-        
-        <Grid x:Name="GridSideMenu" Grid.RowSpan="2" Grid.Column="0" Width="210" HorizontalAlignment="Left" Background="#1f3e66">
+
+        <Grid x:Name="GridSideMenu" Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource GridShadow}" Width="60" HorizontalAlignment="Left" Background="#1f3e66">
             <StackPanel Orientation="Vertical">
                 <Grid Height="60" VerticalAlignment="Top">
                     <Button x:Name="ButtonCloseMenu" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
@@ -82,23 +87,16 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
             <local:AddPatientRecordDetails 
                 x:Name="AddPatient" 
-                HorizontalAlignment="Center"
-                Width="600"
-                Height="700"
-                Margin="0,0,20,0"
+                DataContext="{Binding Path=PatientRecordDetailsViewModel}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Width="800"
+                Height="730"
+                Margin="20,0,20,0"
              />
-        </Grid>
-        
-        <Grid Grid.Row="1" Grid.Column="2">
-            <local:PrintPreviewControl
-                x:Name="PrintPreview"
-                HorizontalAlignment="Center"
-                Width="600"
-                Height="700"
-                />
         </Grid>
     </Grid>
 </Window>

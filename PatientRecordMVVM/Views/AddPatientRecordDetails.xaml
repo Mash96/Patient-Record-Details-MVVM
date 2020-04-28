@@ -7,7 +7,7 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              xmlns:local="clr-namespace:PatientRecordMVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="600" Background="Transparent">
+             d:DesignHeight="800" d:DesignWidth="730" Background="#e2eaec" BorderBrush="#58af9d" BorderThickness="1">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
@@ -57,7 +57,7 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="2.6*"/>
+                <RowDefinition Height="2.8*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -73,19 +73,19 @@
             <TextBox Name="fName" Grid.Row="0" Grid.Column="2" Text="{Binding Path = PatientName}" Style="{StaticResource TextBoxStyle}"/>
 
             <!--Address block-->
-            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource LabelStyles}" VerticalAlignment="Top"  Margin="0,7,15,0">Address :</Label>
-            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center"  Margin="0,2">
+            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource LabelStyles}" VerticalAlignment="Top"  Margin="0,8,15,0">Address :</Label>
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Top" Margin="0,4,0,0">
                 <DockPanel LastChildFill="True" Margin="0,5">
-                    <Label Style="{StaticResource AddressLabelStyles}" HorizontalAlignment="Right">Number :</Label>
-                    <TextBox Name="Number" Text="{Binding Path =  PatientAddress.Number}" Style="{StaticResource TextBoxStyle}"/>
+                    <Label Style="{StaticResource AddressLabelStyles}" HorizontalAlignment="Right" >Number :</Label>
+                    <TextBox Name="Number" Text="{Binding Path =  PatientAddress.Number}" Style="{StaticResource TextBoxStyle}" Margin="2,0,0,0"/>
                 </DockPanel>
                 <DockPanel LastChildFill="True" Margin="0,5">
                     <Label Style="{StaticResource AddressLabelStyles}" Margin="12,0">Street :</Label>
-                    <TextBox Name="Street" Text="{Binding Path =  PatientAddress.Street}" Style="{StaticResource TextBoxStyle}" Margin="3,0,0,0" />
+                    <TextBox Name="Street" Text="{Binding Path =  PatientAddress.Street}" Style="{StaticResource TextBoxStyle}" Margin="4,0,0,0" />
                 </DockPanel>
                 <DockPanel LastChildFill="True" Margin="0,5">
                     <Label Style="{StaticResource AddressLabelStyles}" Margin="24,0">City :</Label>
-                    <TextBox Name="City" Text="{Binding Path = PatientAddress.City}" Style="{StaticResource TextBoxStyle}" Margin="-9,0,0,0"/>
+                    <TextBox Name="City" Text="{Binding Path = PatientAddress.City}" Style="{StaticResource TextBoxStyle}" Margin="-7,0,0,0"/>
                 </DockPanel>
             </StackPanel>
 
@@ -98,7 +98,7 @@
 
             <!--Birthdate block-->
             <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource LabelStyles}">Birthdate :</Label>
-            <DatePicker Name="Date" Grid.Row="3" Grid.Column="2" SelectedDate ="{Binding Path = PatientDateOfBirth}" Style="{StaticResource TextBoxStyle}" MaxHeight="30" Padding="1"/>
+            <DatePicker Name="Date" Grid.Row="3" Grid.Column="2" SelectedDate ="{Binding Path = PatientDateOfBirth}" Style="{StaticResource TextBoxStyle}" VerticalAlignment="Center" MaxHeight="30" Padding="1"/>
 
             <!--Age block-->
             <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource LabelStyles}">Age :</Label>
@@ -116,15 +116,15 @@
 
             <!--Department block-->
             <Label Grid.Row="7" Grid.Column="1" Style="{StaticResource LabelStyles}">Department :</Label>
-            <ComboBox Name="Department" Grid.Row="7" Grid.Column="2" ItemsSource="{Binding Department}" SelectedItem="{Binding Path = PatientDepartment}" FontSize="14" Foreground="Black" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Center" MinHeight="30"/>
+            <ComboBox Name="Department" Grid.Row="7" Grid.Column="2" ItemsSource="{Binding Department}" SelectedItem="{Binding Path = PatientDepartment}" Style="{StaticResource ComboBoxStyle}"/>
 
             <!--Ward Block-->
             <Label Grid.Row="8" Grid.Column="1" Style="{StaticResource LabelStyles}">Ward :</Label>
-            <ComboBox Name="Ward" Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Ward}" SelectedItem="{Binding Path = PatientWard}" FontSize="14" Foreground="Black" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Center" MinHeight="30"/>
+            <ComboBox Name="Ward" Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Ward}" SelectedItem="{Binding Path = PatientWard}" Style="{StaticResource ComboBoxStyle}"/>
 
             <!--Doctor Block-->
             <Label  Grid.Row="9" Grid.Column="1" Style="{StaticResource LabelStyles}">Doctor In Charge :</Label>
-            <ComboBox Name="Doctor" Grid.Row="9" Grid.Column="2" ItemsSource="{Binding DocInCharge}" SelectedItem="{Binding Path = PatientDotorcInCharge}" FontSize="14" Foreground="Black" BorderBrush="LightGray" BorderThickness="1" VerticalAlignment="Center" MinHeight="30"/>
+            <ComboBox Name="Doctor" Grid.Row="9" Grid.Column="2" ItemsSource="{Binding DocInCharge}" SelectedItem="{Binding Path = PatientDotorcInCharge}" Style="{StaticResource ComboBoxStyle}"/>
         </Grid>
 
         <!--Buttons Section-->

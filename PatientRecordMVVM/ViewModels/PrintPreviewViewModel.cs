@@ -11,18 +11,11 @@ namespace PatientRecordMVVM.ViewModels
 {
     class PrintPreviewViewModel
     {
-        #region Fields
-        private IWindowService m_windowService;
-        private PatientRecordDetailsModel patient;
-        #endregion
 
         #region Constructors
         public PrintPreviewViewModel(PatientRecordDetailsModel patient)
-        {
-            this.patient = patient;
-            string id = patient.PatientId;
-
-            PatientID = id.PadRight(6).Substring(0, 6);
+        {            
+            PatientID = patient.PatientId;
             PatientRegisteredDate = patient.PatientRegisteredDate;
             PatientName = patient.PatientName;
             PatientAddress = patient.PatientAddress;
@@ -33,8 +26,6 @@ namespace PatientRecordMVVM.ViewModels
             PatientDepartment = patient.PatientDepartment;
             PatientWard = patient.PatientWard;
             PatientDotorcInCharge = patient.PatientDoctorInCharge;
-
-            m_windowService = new WindowService();
         }
         #endregion
 

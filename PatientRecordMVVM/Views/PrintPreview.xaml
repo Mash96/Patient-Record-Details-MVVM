@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:PatientRecordMVVM.Views"
 		mc:Ignorable="d"
 		MinWidth="700"
-		Title="PrintPreview" Height="850" Width="800">
+		Title="PrintPreview" Height="900" Width="800">
 	<ScrollViewer VerticalScrollBarVisibility="Auto">
 		<!--Main Grid-->
         <Grid>
@@ -32,7 +32,7 @@
                     <RowDefinition Height ="2*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Background="#9dc6a7"/>
+                <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Background="#58af9d"/>
 
                 <!--Patient Id block-->
                 <StackPanel Grid.ColumnSpan="2" Style="{StaticResource StackpanelStyle}">

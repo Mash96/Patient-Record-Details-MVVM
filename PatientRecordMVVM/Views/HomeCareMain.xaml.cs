@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using PatientRecordMVVM.ViewModels;
+using PatientRecordMVVM.Model;
 
 namespace PatientRecordMVVM.Views
 {
@@ -17,15 +11,8 @@ namespace PatientRecordMVVM.Views
     {
         public HomeCareMain()
         {
-
-            InitializeComponent();
-            this.DataContext = new HomeCareMainViewModel();
-            PatientRecordDetailsViewModel patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();           
-            AddPatient.DataContext = patientRecordDetailsViewModel;
+            InitializeComponent();         
             AddPatient.Visibility = Visibility.Hidden;
-
-            //PrintPreviewViewModel printPreviewViewModel -new PrintPreviewViewModel(patient);
-            //PrintPreview.Visibility = Visibility.Hidden;
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

@@ -7,11 +7,16 @@ namespace PatientRecordMVVM.Services
 {
     class WindowService : IWindowService
     {
+        //private HomeCareMain m_homeCare;
+
+        public WindowService()
+        {
+            
+        }
         public void CreateWindow(PatientRecordDetailsModel patient)
         {
-            PrintPreviewControl printPreview = new PrintPreviewControl();
-            printPreview.DataContext = new PrintPreviewViewModel(patient);
-            printPreview.Visibility = Visibility.Visible;
+            PrintPreviewWindow printPreviewWindow = new PrintPreviewWindow(patient);
+            printPreviewWindow.Show();
         }
     }
 }

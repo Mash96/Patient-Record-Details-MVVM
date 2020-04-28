@@ -33,3 +33,5 @@ C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\net
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\AddPatientRecordDetails.baml
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreviewControl.g.cs
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreviewControl.baml
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreviewWindow.g.cs
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Views\PrintPreviewWindow.baml

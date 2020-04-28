@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using PatientRecordMVVM.Commands;
-using PatientRecordMVVM.Services;
+using PatientRecordMVVM.Model;
 
 namespace PatientRecordMVVM.ViewModels
 {
@@ -14,16 +14,26 @@ namespace PatientRecordMVVM.ViewModels
         #endregion
 
         #region Fields
+        private PatientRecordDetailsViewModel m_patientRecordDetailsViewModel;
         #endregion
 
         #region Constructors
         public HomeCareMainViewModel()
         {
-           
+            m_patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();
         }
         #endregion
 
         #region Properties
+        public PatientRecordDetailsViewModel PatientRecordDetailsViewModel
+        {
+            get => m_patientRecordDetailsViewModel;
+            set
+            {
+                m_patientRecordDetailsViewModel = value;
+                OnPropertyChange("PatientRecordDetailsViewModel");
+            }
+        }
         #endregion
 
         #region Commands

@@ -9,6 +9,7 @@ using System.Windows.Media;
 using PatientRecordMVVM.Services;
 using PatientRecordMVVM.Commands;
 using PatientRecordMVVM.Models;
+using System.Windows;
 
 namespace PatientRecordMVVM.ViewModels
 {
@@ -20,7 +21,6 @@ namespace PatientRecordMVVM.ViewModels
 
         #region Fields
         private IWindowService m_windowService;
-        private HomeCareMainViewModel m_homeCareMainWindow;
         private string m_patientName;
         private string m_patientGender;
         private int m_patientAge;
@@ -189,7 +189,7 @@ namespace PatientRecordMVVM.ViewModels
         {
             Guid guid = Guid.NewGuid();
 
-            string guidString = guid.ToString();
+            string guidString = guid.ToString().Substring(0, guid.ToString().IndexOf("-"));
             Patient.PatientId = guidString;
 
             return Patient.PatientId;
@@ -227,9 +227,7 @@ namespace PatientRecordMVVM.ViewModels
         private void OnPreviewCommandExecute()
         {
             PatientRecordDetailsModel getPatientDetails = PopulatePatientDetails();
-            // calling the print preview window from here
-            //m_homeCareMainWindow.
-            //m_windowService.CreateWindow(getPatientDetails);
+            m_windowService.CreateWindow(getPatientDetails);
         }
 
         private bool OnPreviewCommandCanExecute()
