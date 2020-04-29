@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using PatientRecordMVVM.ViewModels;
-using PatientRecordMVVM.Model;
 
 namespace PatientRecordMVVM.Views
 {
@@ -12,7 +10,6 @@ namespace PatientRecordMVVM.Views
         public HomeCareMain()
         {
             InitializeComponent();         
-            AddPatient.Visibility = Visibility.Hidden;
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)

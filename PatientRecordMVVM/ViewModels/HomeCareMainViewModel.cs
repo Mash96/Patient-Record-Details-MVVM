@@ -1,9 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using PatientRecordMVVM.Commands;
-using PatientRecordMVVM.Model;
 
 namespace PatientRecordMVVM.ViewModels
 {
@@ -14,24 +11,24 @@ namespace PatientRecordMVVM.ViewModels
         #endregion
 
         #region Fields
-        private PatientRecordDetailsViewModel m_patientRecordDetailsViewModel;
+        private object m_selectedViewModel;
         #endregion
 
         #region Constructors
         public HomeCareMainViewModel()
         {
-            m_patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();
+            
         }
         #endregion
 
         #region Properties
-        public PatientRecordDetailsViewModel PatientRecordDetailsViewModel
+        public object SelectedViewModel
         {
-            get => m_patientRecordDetailsViewModel;
+            get => m_selectedViewModel;
             set
             {
-                m_patientRecordDetailsViewModel = value;
-                OnPropertyChange("PatientRecordDetailsViewModel");
+                m_selectedViewModel = value;
+                OnPropertyChange("SelectedViewModel");
             }
         }
         #endregion
@@ -44,9 +41,8 @@ namespace PatientRecordMVVM.ViewModels
 
         #region Handlers: Commands
         private void OnLogoutCommandExecute()
-        {
-            // MVVM Violation
-            Application.Current.Shutdown();
+        {            
+            //Application.Current.Shutdown();
         }
 
         private bool OnLogoutCommandCanExecute()
@@ -56,11 +52,7 @@ namespace PatientRecordMVVM.ViewModels
 
         private void OnPatientRecordDetailsCommandsExecute(object parameter)
         {
-            FrameworkElement frameworkElement = (Visual)parameter as FrameworkElement;
-            if (frameworkElement.Visibility == Visibility.Hidden)
-            {
-                frameworkElement.Visibility = Visibility.Visible;
-            }
+            SelectedViewModel = new PatientRecordDetailsViewModel();
         }
 
         private bool OnPatientRecordDetailsCommandsCanExecute(object parameter)

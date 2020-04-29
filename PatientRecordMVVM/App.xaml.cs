@@ -14,9 +14,10 @@ namespace PatientRecordMVVM
         {
             HomeCareMain homeCareMain = new HomeCareMain();
             homeCareMain.Title = "Home Care";
-            HomeCareMainViewModel homeCareMainViewModel = new HomeCareMainViewModel();
-            homeCareMain.DataContext = homeCareMainViewModel;
+            //HomeCareMainViewModel homeCareMainViewModel = new HomeCareMainViewModel();
+            //homeCareMain.DataContext = homeCareMainViewModel;
             homeCareMain.Show();
+
             //PatientRecordDetails userWindow = new PatientRecordDetails();
             //userWindow.Title = "Patient Record Details";
             //PatientRecordDetailsViewModel patientRecordDetailsViewModel = new PatientRecordDetailsViewModel();

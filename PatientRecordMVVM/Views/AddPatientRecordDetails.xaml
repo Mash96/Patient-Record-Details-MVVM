@@ -7,7 +7,7 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              xmlns:local="clr-namespace:PatientRecordMVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="730" Background="#e2eaec" BorderBrush="#58af9d" BorderThickness="1">
+             d:DesignHeight="800" d:DesignWidth="730" Background="#e2eaec" BorderBrush="#e2eaec" BorderThickness="1">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>

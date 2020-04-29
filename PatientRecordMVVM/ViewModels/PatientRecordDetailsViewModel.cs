@@ -267,18 +267,21 @@ namespace PatientRecordMVVM.ViewModels
 
         private void OnGetPatientImageCommandExecute()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
-                Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
-                            "All files (*.*)|*.*"
-            };
+            MessageBox.Show("Function working");
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            
             if (openFileDialog.ShowDialog() == true)
             {
                 string m_fileName = openFileDialog.FileName;
                 BitmapImage bitmap = new BitmapImage(new Uri(m_fileName));
                 PatientImageSource = bitmap;
             }
+
+            //{
+            //    InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
+            //    Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
+            //                "All files (*.*)|*.*"
+            //};
         }
         #endregion
 
