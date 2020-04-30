@@ -56,7 +56,6 @@
         <Image x:Name="Logo" Grid.Row="1" Grid.ColumnSpan="3"  Source="/PatientRecordMVVM;component/Images/logo.jpg" Opacity="0.12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Grid Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource GridShadow}" Height="60" VerticalAlignment="Top" Background="#1A365D">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="/PatientRecordMVVM;component/Images/logo.jpg" Width="30" Height="30" Margin="0,0,20,0"/>
                 <TextBlock Text="HOME CARE" FontSize="22" Foreground="#CEE8EC" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
             <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10">
@@ -70,7 +69,8 @@
 
         <Grid x:Name="GridSideMenu" Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource GridShadow}" Width="210" HorizontalAlignment="Left" Background="#1A365D">
             <StackPanel Orientation="Vertical">
-                <Grid Background="#CEE8EC" Height="150" VerticalAlignment="Top">
+                <Grid Background="White" Height="150" VerticalAlignment="Top">
+                    <Image x:Name="SideLogo" Source="/PatientRecordMVVM;component/Images/logo.jpg" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Button x:Name="ButtonCloseMenu" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#1A365D" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
                         <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
                     </Button>
@@ -79,11 +79,11 @@
                     </Button>
                 </Grid>
                 <ListView Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,50,0,0">
-                    <ListViewItem Height="60">
-                        <Button Command="{Binding Path=AddPatientCommand}" CommandParameter="{Binding ElementName=AddPatient}" Background="#298A9A" BorderBrush="#298A9A" Width="190" Height="40" VerticalAlignment="Top">
+                    <ListViewItem Height="60" HorizontalAlignment="Center">
+                        <Button Command="{Binding Path=AddPatientCommand}" CommandParameter="{Binding ElementName=AddPatient}" Background="#58af9d" BorderBrush="#58af9d" Width="190" Height="40" VerticalAlignment="Top">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="Add" Foreground="White" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-5,0,20,0"/>
-                                <TextBlock Text="Add Patient Details" FontSize="13" VerticalAlignment="Center" Margin='0,0,20,0'/>
+                                <TextBlock Text="Add Patient Details" FontSize="13.5" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
                     </ListViewItem>
@@ -91,11 +91,11 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+        <Grid Grid.Row="1" Grid.Column="1">
             <ContentControl 
                 x:Name="ContentDisplay" 
                 Content="{Binding SelectedViewModel}" 
-                Width="700"
+                Width="Auto"
                 Height="730"  
                 Margin="20,0,20,0"/>
         </Grid>

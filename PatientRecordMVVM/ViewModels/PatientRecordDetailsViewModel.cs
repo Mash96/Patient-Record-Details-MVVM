@@ -23,7 +23,6 @@ namespace PatientRecordMVVM.ViewModels
         private IWindowService m_windowService;
         private string m_patientName;
         private string m_patientGender;
-        private int m_patientAge;
         private DateTime m_patientDateofbirth = DateTime.Today;
         private ImageSource m_patientImageSource;
         private PatientAddress m_patientAddress;
@@ -107,15 +106,7 @@ namespace PatientRecordMVVM.ViewModels
             }
         }
 
-        public int PatientAge
-        {
-            get => m_patientAge;
-            set
-            {
-                m_patientAge = value;
-                OnPropertyChange("PatientAge");
-            }
-        }
+        public int CurrentPatientAge => CalculateAge();
 
         public ImageSource PatientImageSource
         {
@@ -207,13 +198,19 @@ namespace PatientRecordMVVM.ViewModels
             return Patient.PatientRegisteredDate;
         }
 
+        private int CalculateAge()
+        {
+            int CurrentYear = DateTime.Now.Year;
+            int BirthYear = PatientDateOfBirth.Year;
+            Patient.PatientAge = CurrentYear - BirthYear;
+            return Patient.PatientAge;
+        }
         private PatientRecordDetailsModel PopulatePatientDetails()
         {
             Patient.PatientName = PatientName;
             Patient.PatientAddress = PatientAddress;
             Patient.PatientGender = PatientGender;
             Patient.PatientDateOfBirth = PatientDateOfBirth;
-            Patient.PatientAge = PatientAge;
             Patient.PatientImageSource = PatientImageSource;
             Patient.PatientDepartment = PatientDepartment;
             Patient.PatientWard = PatientWard;
@@ -256,7 +253,7 @@ namespace PatientRecordMVVM.ViewModels
             PatientAddress = new PatientAddress();
             PatientGender = null;
             PatientDateOfBirth = DateTime.Today;
-            PatientAge = 0;
+            //PatientAge = 0;
             PatientImageSource = null;
             PatientDepartment = null;
             PatientWard = null;
