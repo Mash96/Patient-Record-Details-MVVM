@@ -1,5 +1,4 @@
 ﻿using System.Windows.Media;
-using PatientRecordMVVM.Model;
 using PatientRecordMVVM.Services;
 using PatientRecordMVVM.Commands;
 using System.Windows.Input;
@@ -14,9 +13,9 @@ namespace PatientRecordMVVM.ViewModels
 
         #region Constructors
         public PrintPreviewViewModel(PatientRecordDetailsModel patient)
-        {            
-            PatientID = patient.PatientId;
-            PatientRegisteredDate = patient.PatientRegisteredDate;
+        {
+            GuidGenerator = patient.PatientId;
+            CurrentDate = patient.PatientRegisteredDate;
             PatientName = patient.PatientName;
             PatientAddress = patient.PatientAddress;
             PatientGender = patient.PatientGender;
@@ -30,9 +29,9 @@ namespace PatientRecordMVVM.ViewModels
         #endregion
 
         #region Properties
-        public string PatientID { get; set; }
+        public string GuidGenerator { get; set; }
 
-        public string PatientRegisteredDate { get; set; }
+        public string CurrentDate { get; set; }
 
         public string PatientName { get; set; }
 

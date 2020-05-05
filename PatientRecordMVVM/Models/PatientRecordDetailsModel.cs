@@ -1,8 +1,7 @@
-﻿using PatientRecordMVVM.Models;
-using System;
+﻿using System;
 using System.Windows.Media;
 
-namespace PatientRecordMVVM.Model
+namespace PatientRecordMVVM.Models
 {
     public class PatientRecordDetailsModel
     {

@@ -35,3 +35,7 @@ C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\bin\Debug\net
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\bin\Debug\netcoreapp3.1\PatientRecordMVVM.pdb
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.csprojAssemblyReference.cache
 C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\PatientRecordMVVM.genruntimeconfig.cache
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Controls\UserControlHeader.g.cs
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Controls\UserControlHeader.baml
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Controls\MainHeaderControl.g.cs
+C:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\obj\Debug\netcoreapp3.1\Controls\MainHeaderControl.baml

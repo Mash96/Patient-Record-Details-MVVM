@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace PatientRecordMVVM.Views
 {
@@ -10,6 +11,11 @@ namespace PatientRecordMVVM.Views
         public AddPatientRecordDetails()
         {
             InitializeComponent();
+        }
+
+        private void ButtonCancel(object sender, RoutedEventArgs e)
+        {
+            AddPatientForm.Visibility = Visibility.Collapsed;
         }
     }
 }

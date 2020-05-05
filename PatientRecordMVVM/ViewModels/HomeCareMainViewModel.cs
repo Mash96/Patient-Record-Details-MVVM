@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 using PatientRecordMVVM.Commands;
+using PatientRecordMVVM.Models;
 
 namespace PatientRecordMVVM.ViewModels
 {
@@ -12,6 +14,7 @@ namespace PatientRecordMVVM.ViewModels
 
         #region Fields
         private object m_selectedViewModel;
+        private Visibility m_visibilityControl = Visibility.Collapsed;
         #endregion
 
         #region Constructors
@@ -31,6 +34,30 @@ namespace PatientRecordMVVM.ViewModels
                 OnPropertyChange("SelectedViewModel");
             }
         }
+
+        //public PrintPreviewViewModel PrintPreviewViewModel
+        //{
+        //    get;set;
+        //}
+
+        //public static void GetPatientObject(PatientRecordDetailsModel patient)
+        //{
+           
+        //}
+
+
+        //public Visibility VisibilityControl
+        //{
+        //    get
+        //    {
+        //        return m_visibilityControl;
+        //    }
+        //    set
+        //    {
+        //        m_visibilityControl = value;
+        //        OnPropertyChange("VisibilityControl");
+        //    }
+        //}
         #endregion
 
         #region Commands

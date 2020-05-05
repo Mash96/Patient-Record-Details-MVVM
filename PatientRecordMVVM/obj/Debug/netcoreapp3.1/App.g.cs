@@ -75,6 +75,8 @@ namespace PatientRecordMVVM {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.8.1.0")]
         public static void Main() {
+            SplashScreen splashScreen = new SplashScreen("logo.jpg");
+            splashScreen.Show(true);
             PatientRecordMVVM.App app = new PatientRecordMVVM.App();
             app.InitializeComponent();
             app.Run();

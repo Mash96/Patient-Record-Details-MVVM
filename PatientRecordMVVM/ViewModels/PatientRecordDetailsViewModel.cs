@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using PatientRecordMVVM.Model;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
@@ -10,6 +9,7 @@ using PatientRecordMVVM.Services;
 using PatientRecordMVVM.Commands;
 using PatientRecordMVVM.Models;
 using System.Windows;
+using PatientRecordMVVM.Core;
 
 namespace PatientRecordMVVM.ViewModels
 {
@@ -17,6 +17,7 @@ namespace PatientRecordMVVM.ViewModels
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler<EventAggregator> SimpleEvent;
         #endregion
 
         #region Fields
@@ -24,6 +25,7 @@ namespace PatientRecordMVVM.ViewModels
         private string m_patientName;
         private string m_patientGender;
         private DateTime m_patientDateofbirth = DateTime.Today;
+        private int m_patientAge;
         private ImageSource m_patientImageSource;
         private PatientAddress m_patientAddress;
         private string m_patientDepartment;
@@ -103,10 +105,11 @@ namespace PatientRecordMVVM.ViewModels
             {
                 m_patientDateofbirth = value;
                 OnPropertyChange("PatientDateOfBirth");
+                OnPropertyChange(nameof(PatientAge));
             }
         }
 
-        public int CurrentPatientAge => CalculateAge();
+        public int PatientAge => CalculateAge();
 
         public ImageSource PatientImageSource
         {
@@ -200,17 +203,26 @@ namespace PatientRecordMVVM.ViewModels
 
         private int CalculateAge()
         {
-            int CurrentYear = DateTime.Now.Year;
-            int BirthYear = PatientDateOfBirth.Year;
-            Patient.PatientAge = CurrentYear - BirthYear;
-            return Patient.PatientAge;
+            if (m_patientDateofbirth == null)
+            {
+                return 0;
+            }
+            else
+            {
+                int CurrentYear = DateTime.Now.Year;
+                int BirthYear = m_patientDateofbirth.Year;
+                m_patientAge = CurrentYear - BirthYear;
+                return m_patientAge;
+            }
         }
+
         private PatientRecordDetailsModel PopulatePatientDetails()
         {
             Patient.PatientName = PatientName;
             Patient.PatientAddress = PatientAddress;
             Patient.PatientGender = PatientGender;
             Patient.PatientDateOfBirth = PatientDateOfBirth;
+            Patient.PatientAge = PatientAge;
             Patient.PatientImageSource = PatientImageSource;
             Patient.PatientDepartment = PatientDepartment;
             Patient.PatientWard = PatientWard;
@@ -224,6 +236,7 @@ namespace PatientRecordMVVM.ViewModels
         private void OnPreviewCommandExecute()
         {
             PatientRecordDetailsModel getPatientDetails = PopulatePatientDetails();
+            OnButtonClick(new EventAggregator(getPatientDetails));
             m_windowService.CreateWindow(getPatientDetails);
         }
 
@@ -253,7 +266,6 @@ namespace PatientRecordMVVM.ViewModels
             PatientAddress = new PatientAddress();
             PatientGender = null;
             PatientDateOfBirth = DateTime.Today;
-            //PatientAge = 0;
             PatientImageSource = null;
             PatientDepartment = null;
             PatientWard = null;
@@ -264,21 +276,19 @@ namespace PatientRecordMVVM.ViewModels
 
         private void OnGetPatientImageCommandExecute()
         {
-            MessageBox.Show("Function working");
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
+                Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
+                                "All files (*.*)|*.*"
+            };
+
             if (openFileDialog.ShowDialog() == true)
             {
                 string m_fileName = openFileDialog.FileName;
                 BitmapImage bitmap = new BitmapImage(new Uri(m_fileName));
                 PatientImageSource = bitmap;
             }
-
-            //{
-            //    InitialDirectory = @"C:\Users\Maneesha\Desktop\Dips Y-knots\images\",
-            //    Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" +
-            //                "All files (*.*)|*.*"
-            //};
         }
         #endregion
 
@@ -287,6 +297,14 @@ namespace PatientRecordMVVM.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void OnButtonClick(EventAggregator eventAggregator)
+        {
+            EventHandler<EventAggregator> eh = SimpleEvent;
+            if (eh != null)
+                eh(this, eventAggregator);
+        }
         #endregion
     }
 }
+

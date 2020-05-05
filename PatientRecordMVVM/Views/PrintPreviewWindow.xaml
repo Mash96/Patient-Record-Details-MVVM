@@ -7,6 +7,7 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         xmlns:local="clr-namespace:PatientRecordMVVM.Views"
         xmlns:vm ="clr-namespace:PatientRecordMVVM.ViewModels"
+        xmlns:controls ="clr-namespace:PatientRecordMVVM.Controls"
         mc:Ignorable="d"
         Title="PrintPreviewWindow" Height="850" Width="1000" Foreground="White">
 
@@ -16,11 +17,8 @@
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource GridShadow}" Height="60" VerticalAlignment="Top" Background="#1f3e66">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="/PatientRecordMVVM;component/Images/logo.jpg" Width="30" Height="30" Margin="0,0,20,0"/>
-                <TextBlock Text="HOME CARE" FontSize="22" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </StackPanel>
+        <Grid Grid.Row="0" Grid.ColumnSpan="3">
+            <controls:MainHeaderControl/>
         </Grid>
 
         <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">

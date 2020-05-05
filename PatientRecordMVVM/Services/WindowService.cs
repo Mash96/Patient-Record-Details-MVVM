@@ -1,7 +1,7 @@
 ﻿using PatientRecordMVVM.Views;
-using PatientRecordMVVM.Model;
 using PatientRecordMVVM.ViewModels;
 using System.Windows;
+using PatientRecordMVVM.Models;
 
 namespace PatientRecordMVVM.Services
 {
@@ -16,7 +16,7 @@ namespace PatientRecordMVVM.Services
         public void CreateWindow(PatientRecordDetailsModel patient)
         {
             PrintPreviewWindow printPreviewWindow = new PrintPreviewWindow(patient);
-            printPreviewWindow.Show();
+            printPreviewWindow.ShowDialog();
         }
     }
 }

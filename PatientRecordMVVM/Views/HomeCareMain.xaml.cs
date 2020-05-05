@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using PatientRecordMVVM.Models;
+using PatientRecordMVVM.ViewModels;
+using System.Windows;
 
 namespace PatientRecordMVVM.Views
 {
@@ -22,6 +24,12 @@ namespace PatientRecordMVVM.Views
         {
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
+        }
+
+        public void PrintPreviewButtonClicked(PatientRecordDetailsModel patient)
+        {
+            PrintPreviewControl.DataContext = new PrintPreviewViewModel(patient);
+            PrintPreviewControl.Visibility = Visibility.Visible;
         }
     }
 }

@@ -6,8 +6,10 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="{materialDesign:MaterialDesignFont}"
              xmlns:local="clr-namespace:PatientRecordMVVM.Views"
+             xmlns:controls ="clr-namespace:PatientRecordMVVM.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="730" Background="White">
+             d:DesignHeight="800" d:DesignWidth="730" Background="White" x:Name="AddPatientForm">
+
     <Grid Style="{StaticResource GridShadow}" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
@@ -16,37 +18,17 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="18*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Background="#58af9d"/>
-
-        <!--Patient Id block-->
-        <StackPanel Grid.ColumnSpan="2" Style="{StaticResource StackpanelStyle}">
-            <Label FontSize="16" FontWeight="Normal" Foreground="White">
-                Patient ID :
-            </Label>
-            <Label Content="{Binding Path=GuidGenerator}" FontSize="16" Foreground="White" Margin="5,0"/>
-        </StackPanel>
-
-        <!--Date block-->
-        <StackPanel  Grid.ColumnSpan="3"  Style="{StaticResource StackpanelStyle}" HorizontalAlignment="Right">
-            <Label FontSize="16" FontWeight="Normal" Foreground="White">
-                Date :
-            </Label>
-            <Label Name="date_time" Content="{Binding Path=CurrentDate}" FontSize="16" Foreground="White" Margin="5,0"/>
-        </StackPanel>
-
-        <!--Title block-->
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" FontSize="20" FontWeight="Normal" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200">
-                Patient Registration Information
-        </TextBlock>
+        <Grid x:Name="Header" Grid.Row="0" Grid.ColumnSpan="3">
+            <controls:UserControlHeader/>
+        </Grid>
 
         <!--Main sub Grid-->
-        <Grid Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="25,25,25,0">
+        <Grid Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="25,25,25,0">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -106,14 +88,14 @@
             <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource LabelStyles}" Margin="130,0,0,0">:</Label>
             <Grid Grid.Row="3" Grid.Column="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" MaxWidth="160"/>
-                    <ColumnDefinition Width="*" MaxWidth="250"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <DatePicker Name="Date" Grid.Column="0" SelectedDate ="{Binding Path = PatientDateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DatePickerStyle}" VerticalAlignment="Center" Height="30" Padding="3,0,5,0"/>
+                <DatePicker Name="Date" Grid.Column="0" SelectedDate ="{Binding Path = PatientDateOfBirth, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DatePickerStyle}" VerticalAlignment="Center" Height="30" Padding="3,0,5,0"/>
                 <DockPanel Grid.Column="1" LastChildFill="True">
-                    <Label Grid.Column="1" Style="{StaticResource LabelStyles}" Margin="10,0,0,0">Age</Label>
+                    <Label Grid.Column="1" Style="{StaticResource LabelStyles}" Margin="25,0,35,0">Age</Label>
                     <Label Grid.Column="1" Style="{StaticResource LabelStyles}" Margin="10,0,10,0">:</Label>
-                    <TextBox  Name="Age" Grid.Column="1" Text="{Binding Path = CurrentPatientAge, Mode=OneWay}" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBox  Name="Age" Grid.Column="1" Text="{Binding Path = PatientAge, Mode=OneWay}" Style="{StaticResource TextBoxStyle}"/>
                 </DockPanel>
             </Grid>
 
@@ -145,9 +127,10 @@
         </Grid>
 
         <!--Buttons Section-->
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0" >
-            <Button Command="{Binding Path=PreviewCommand}" Style="{StaticResource ButtonStyle}" Background="#1A365D" BorderBrush="#1A365D" Content="Print Preview" Margin="0,0,8,0"/>
-            <Button Command="{Binding Path=ClearPatientCommand}" Style="{StaticResource ButtonStyle}" Background="#58af9d" BorderBrush="#58af9d" Content="Clear"/>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0" >
+            <Button Click="ButtonCancel" Style="{StaticResource ButtonStyle}" Background="#58af9d" BorderBrush="#58af9d" Content="Cancel" Margin="0,0,8,0"/>
+            <Button Command="{Binding Path=ClearPatientCommand}" Style="{StaticResource ButtonStyle}" Background="#58af9d" BorderBrush="#58af9d" Content="Clear" Margin="0,0,8,0"/>
+            <Button Command="{Binding Path=PreviewCommand}" Style="{StaticResource ButtonStyle}" Background="#1A365D" BorderBrush="#1A365D" Content="Print Preview"/>
         </StackPanel>
     </Grid>
 </UserControl>

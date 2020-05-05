@@ -1,4 +1,4 @@
-﻿using PatientRecordMVVM.Model;
+﻿using PatientRecordMVVM.Models;
 
 namespace PatientRecordMVVM.Services
 {

@@ -72,6 +72,7 @@
 
     <!--Style for Preview labels-->
     <Style x:Key="PreviewLabelStyles" TargetType="{x:Type Label}" BasedOn="{StaticResource LabelStyles}">
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
 
@@ -101,14 +102,19 @@
     <!--Style for Textblocks in Preview window-->
     <Style x:Key="TextBlockStyleControl" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle}">
         <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Background" Value="#58af9d"/>
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Height" Value="30"/>
+        
     </Style>
 
     <!--Style for Labels in PrintPreview User Control-->
     <Style x:Key="LabelStyleControl" TargetType="{x:Type Label}" BasedOn="{StaticResource LabelStyles}">
         <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
 
