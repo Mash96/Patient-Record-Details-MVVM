@@ -6,11 +6,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="{materialDesign:MaterialDesignFont}"
         xmlns:local="clr-namespace:PatientRecordMVVM.Views"
-        xmlns:vm ="clr-namespace:PatientRecordMVVM.ViewModels"
         xmlns:controls ="clr-namespace:PatientRecordMVVM.Controls"
         mc:Ignorable="d"
-        Title="PrintPreviewWindow" Height="850" Width="1000" Foreground="White">
-
+        Title="Print Preview" Height="850" Width="1000" Foreground="White">
+    <Window.Resources>
+        
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>

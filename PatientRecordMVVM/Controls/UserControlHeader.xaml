@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PatientRecordMVVM.Controls"
+             xmlns:lang ="clr-namespace:PatientRecordMVVM.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="800" Background="White">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.5*"/>
@@ -17,28 +19,22 @@
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-
+        
         <Grid Grid.RowSpan="2" Grid.ColumnSpan="3" Background="#58af9d"/>
 
         <!--Patient Id block-->
         <StackPanel Grid.ColumnSpan="2" Style="{StaticResource StackpanelStyle}">
-            <Label FontSize="16" FontWeight="Normal" Foreground="White">
-                Patient ID :
-            </Label>
+            <Label Content="{x:Static lang:UILanguage.PatientId}" FontSize="16" FontWeight="Normal" Foreground="White"/>
             <Label Content="{Binding Path=GuidGenerator}" FontSize="16" Foreground="White" Margin="5,0"/>
         </StackPanel>
 
         <!--Date block-->
         <StackPanel  Grid.ColumnSpan="3"  Style="{StaticResource StackpanelStyle}" HorizontalAlignment="Right">
-            <Label FontSize="16" FontWeight="Normal" Foreground="White">
-                Date :
-            </Label>
+            <Label Content="{x:Static lang:UILanguage.Date}" FontSize="16" FontWeight="Normal" Foreground="White"/>
             <Label Name="date_time" Content="{Binding Path=CurrentDate}" FontSize="16" Foreground="White" Margin="5,0"/>
         </StackPanel>
 
         <!--Title block-->
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" FontSize="20" FontWeight="Normal" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200">
-                Patient Registration Information
-        </TextBlock>
+        <TextBlock Text="{x:Static lang:UILanguage.MainTitle}" Grid.Row="1" Grid.ColumnSpan="3" FontSize="20" FontWeight="Normal" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="200"/>
     </Grid>
 </UserControl>

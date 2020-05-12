@@ -8,16 +8,13 @@ using System.Windows.Media;
 using PatientRecordMVVM.Services;
 using PatientRecordMVVM.Commands;
 using PatientRecordMVVM.Models;
-using System.Windows;
-using PatientRecordMVVM.Core;
 
 namespace PatientRecordMVVM.ViewModels
 {
-    class PatientRecordDetailsViewModel : INotifyPropertyChanged
+    class AddPatientRecordDetailsViewModel : INotifyPropertyChanged
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler<EventAggregator> SimpleEvent;
         #endregion
 
         #region Fields
@@ -34,7 +31,7 @@ namespace PatientRecordMVVM.ViewModels
         #endregion
 
         #region Constructors
-        public PatientRecordDetailsViewModel()
+        public AddPatientRecordDetailsViewModel()
         {
             Department = new ObservableCollection<string>
             {
@@ -236,7 +233,6 @@ namespace PatientRecordMVVM.ViewModels
         private void OnPreviewCommandExecute()
         {
             PatientRecordDetailsModel getPatientDetails = PopulatePatientDetails();
-            OnButtonClick(new EventAggregator(getPatientDetails));
             m_windowService.CreateWindow(getPatientDetails);
         }
 
@@ -296,13 +292,6 @@ namespace PatientRecordMVVM.ViewModels
         private void OnPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void OnButtonClick(EventAggregator eventAggregator)
-        {
-            EventHandler<EventAggregator> eh = SimpleEvent;
-            if (eh != null)
-                eh(this, eventAggregator);
         }
         #endregion
     }

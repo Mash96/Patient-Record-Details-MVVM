@@ -13,16 +13,10 @@
     <Compile Update="Controls\UserControlHeader.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\AddPatientRecordDetails.xaml.cs">
+    <Compile Update="Views\AddPatientRecordDetailsControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\HomeCareMain.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PatientRecordDetails.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PrintPreview.xaml.cs">
+    <Compile Update="Views\HomeCareMainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\PrintPreviewControl.xaml.cs">
@@ -45,16 +39,10 @@
     <Page Update="Resources\MainDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\AddPatientRecordDetails.xaml">
+    <Page Update="Views\AddPatientRecordDetailsControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\HomeCareMain.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\PatientRecordDetails.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\PrintPreview.xaml">
+    <Page Update="Views\HomeCareMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PrintPreviewControl.xaml">

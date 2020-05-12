@@ -1,5 +1,4 @@
-﻿using PatientRecordMVVM.Models;
-using PatientRecordMVVM.ViewModels;
+﻿
 using System.Windows;
 
 namespace PatientRecordMVVM.Views
@@ -7,11 +6,11 @@ namespace PatientRecordMVVM.Views
     /// <summary>
     /// Interaction logic for HomeCareMain.xaml
     /// </summary>
-    public partial class HomeCareMain : Window
+    public partial class HomeCareMainWindow : Window
     {
-        public HomeCareMain()
+        public HomeCareMainWindow()
         {
-            InitializeComponent();         
+            InitializeComponent();
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -24,12 +23,6 @@ namespace PatientRecordMVVM.Views
         {
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
-        }
-
-        public void PrintPreviewButtonClicked(PatientRecordDetailsModel patient)
-        {
-            PrintPreviewControl.DataContext = new PrintPreviewViewModel(patient);
-            PrintPreviewControl.Visibility = Visibility.Visible;
         }
     }
 }

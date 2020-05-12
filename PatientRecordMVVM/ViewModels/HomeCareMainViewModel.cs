@@ -1,8 +1,13 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using PatientRecordMVVM.Commands;
-using PatientRecordMVVM.Models;
+using PatientRecordMVVM.Services;
 
 namespace PatientRecordMVVM.ViewModels
 {
@@ -14,13 +19,13 @@ namespace PatientRecordMVVM.ViewModels
 
         #region Fields
         private object m_selectedViewModel;
-        private Visibility m_visibilityControl = Visibility.Collapsed;
+        private IWindowService m_windowService;
         #endregion
 
         #region Constructors
         public HomeCareMainViewModel()
         {
-            
+            m_windowService = new WindowService();           
         }
         #endregion
 
@@ -35,57 +40,61 @@ namespace PatientRecordMVVM.ViewModels
             }
         }
 
-        //public PrintPreviewViewModel PrintPreviewViewModel
-        //{
-        //    get;set;
-        //}
+    public string LangSwitch { get; private set; } = null;
 
-        //public static void GetPatientObject(PatientRecordDetailsModel patient)
-        //{
-           
-        //}
-
-
-        //public Visibility VisibilityControl
-        //{
-        //    get
-        //    {
-        //        return m_visibilityControl;
-        //    }
-        //    set
-        //    {
-        //        m_visibilityControl = value;
-        //        OnPropertyChange("VisibilityControl");
-        //    }
-        //}
         #endregion
 
         #region Commands
-        public ICommand LogoutCommand => new PatientRecordDetailsCommands(param => OnLogoutCommandExecute(), param => OnLogoutCommandCanExecute());
-
         public ICommand AddPatientCommand => new PatientRecordDetailsCommands(OnPatientRecordDetailsCommandsExecute, OnPatientRecordDetailsCommandsCanExecute);
+
+        public ICommand ChangeToEnglish => new PatientRecordDetailsCommands(OnChangeToEnglishExecute, OnChangeToEnglishCanExecute);
+
+        public ICommand ChangeToNorwegian => new PatientRecordDetailsCommands(OnChangeToNorwegianExecute, OnChangeToNorwegianCanExecute);
         #endregion
 
         #region Handlers: Commands
-        private void OnLogoutCommandExecute()
-        {            
-            //Application.Current.Shutdown();
-        }
-
-        private bool OnLogoutCommandCanExecute()
-        {
-            return true;
-        }
-
         private void OnPatientRecordDetailsCommandsExecute(object parameter)
         {
-            SelectedViewModel = new PatientRecordDetailsViewModel();
+            SelectedViewModel = new AddPatientRecordDetailsViewModel();
         }
 
         private bool OnPatientRecordDetailsCommandsCanExecute(object parameter)
         {
             return true;
         }
+
+        private void OnChangeToEnglishExecute(object parameter)
+        {
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+            //MenuItem menuItem = (Visual)parameter as MenuItem;
+            //menuItem.IsChecked = false;           
+
+        }
+
+        private bool OnChangeToEnglishCanExecute(object parameter)
+        {
+            return true;
+        }
+
+        private void OnChangeToNorwegianExecute(object parameter)
+        {
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ng-NO");
+            //MenuItem menuItem = (Visual)parameter as MenuItem;
+            //menuItem.IsChecked = false;
+            //m_windowService.RefreshWindow();
+        }
+
+        private bool OnChangeToNorwegianCanExecute(object parameter)
+        {
+            return true;
+        }
+        #endregion
+
+        #region Handlers: Members
+        //private void ShowSelectedItem()
+        //{
+        //    MessageBox.Show(m_selectedLanguage.ToString());
+        //}
         #endregion
 
         #region Event Handlers

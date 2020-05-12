@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PatientRecordMVVM.Events
+namespace PatientRecordMVVM.Utilities
 {
-    interface IEventAggregator
+    public static class LanguageUtility
     {
+
     }
 }

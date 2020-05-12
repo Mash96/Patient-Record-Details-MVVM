@@ -18,5 +18,11 @@ namespace PatientRecordMVVM.Services
             PrintPreviewWindow printPreviewWindow = new PrintPreviewWindow(patient);
             printPreviewWindow.ShowDialog();
         }
+
+        public void RefreshWindow()
+        {
+            HomeCareMainWindow home = new HomeCareMainWindow();
+            home.Show();
+        }
     }
 }

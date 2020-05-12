@@ -122,8 +122,8 @@
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,10,26,0">
-            <Button Command="{Binding Path=ConfigureAndPrintCommand}" CommandParameter="{Binding ElementName=MainSubGrid}" Style="{StaticResource ButtonStyle}" Content="Configure Print" Background="#58af9d" BorderBrush="#58af9d" Margin="0,0,8,0"/>
-            <Button Command="{Binding Path=DefaultPrintCommand}" CommandParameter="{Binding ElementName=MainSubGrid}" Style="{StaticResource ButtonStyle}" Content="Default Print" Background="#1A365D" BorderBrush="#1A365D"/>
+            <Button Command="{Binding Path=ConfigureAndPrintCommand}" CommandParameter="{Binding ElementName=MainSubGrid}" Style="{DynamicResource MaterialDesignRaisedLightButton}" Foreground="White" FontWeight="Normal" Content="Configure Print" Background="#58af9d" BorderBrush="#58af9d" Width="125" Margin="0,0,8,0"/>
+            <Button Command="{Binding Path=DefaultPrintCommand}" CommandParameter="{Binding ElementName=MainSubGrid}" Style="{DynamicResource MaterialDesignRaisedLightButton}" Foreground="White" FontWeight="Normal" Content="Default Print" Background="#1A365D" BorderBrush="#1A365D" Width="125"/>
             
         </StackPanel>
     </Grid>

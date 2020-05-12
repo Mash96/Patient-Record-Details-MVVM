@@ -1,12 +1,10 @@
 ﻿
 FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\App.xaml;;
+FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Controls\MainHeaderControl.xaml;;
+FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Controls\UserControlHeader.xaml;;
 FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\MainWindow.xaml;;
-FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\AddPatientRecordDetails.xaml;;
-FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\HomeCareMain.xaml;;
-FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\PatientRecordDetails.xaml;;
-FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\PrintPreview.xaml;;
+FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\AddPatientRecordDetailsControl.xaml;;
+FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\HomeCareMainWindow.xaml;;
 FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\PrintPreviewControl.xaml;;
 FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Views\PrintPreviewWindow.xaml;;
-FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Controls\UserControlHeader.xaml;;
-FC:\Users\Maneesha\source\repos\PatientRecordMVVM\PatientRecordMVVM\Controls\MainHeaderControl.xaml;;
 
