@@ -1,6 +1,4 @@
 ﻿using PatientRecordMVVM.Views;
-using PatientRecordMVVM.ViewModels;
-using System.Windows;
 using PatientRecordMVVM.Models;
 
 namespace PatientRecordMVVM.Services
@@ -9,20 +7,12 @@ namespace PatientRecordMVVM.Services
     {
         //private HomeCareMain m_homeCare;
 
-        public WindowService()
-        {
-            
-        }
+        public WindowService() {}
+
         public void CreateWindow(PatientRecordDetailsModel patient)
         {
             PrintPreviewWindow printPreviewWindow = new PrintPreviewWindow(patient);
             printPreviewWindow.ShowDialog();
-        }
-
-        public void RefreshWindow()
-        {
-            HomeCareMainWindow home = new HomeCareMainWindow();
-            home.Show();
         }
     }
 }

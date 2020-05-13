@@ -123,8 +123,20 @@
   <data name="Analytics" xml:space="preserve">
     <value>Analytics</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Bla</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Klar</value>
+  </data>
+  <data name="ConfigurePrint" xml:space="preserve">
+    <value>Konfigurer Utskrift</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Dato :</value>
+  </data>
+  <data name="DefaultPrint" xml:space="preserve">
+    <value>Standard Utskrift</value>
   </data>
   <data name="EmpList" xml:space="preserve">
     <value>Ansatteliste</value>
@@ -138,8 +150,59 @@
   <data name="MainTitle" xml:space="preserve">
     <value>Pasient Registrering Informasjon</value>
   </data>
+  <data name="MedicalInfo" xml:space="preserve">
+    <value>Pasientmedisinsk Informasjon</value>
+  </data>
+  <data name="PAddress" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="PAge" xml:space="preserve">
+    <value>Alder</value>
+  </data>
   <data name="PatientId" xml:space="preserve">
     <value>Pasient-ID :</value>
+  </data>
+  <data name="PBirthdate" xml:space="preserve">
+    <value>Bursdag</value>
+  </data>
+  <data name="PCity" xml:space="preserve">
+    <value>By</value>
+  </data>
+  <data name="PDepartment" xml:space="preserve">
+    <value>Avdeling</value>
+  </data>
+  <data name="PDocInCharge" xml:space="preserve">
+    <value>Doctor In Charge</value>
+  </data>
+  <data name="PersonalInfo" xml:space="preserve">
+    <value>Pasientens Personlige Opplysninger</value>
+  </data>
+  <data name="PFemale" xml:space="preserve">
+    <value>Hunn</value>
+  </data>
+  <data name="PGender" xml:space="preserve">
+    <value>Kjønn</value>
+  </data>
+  <data name="PImage" xml:space="preserve">
+    <value>Bilde</value>
+  </data>
+  <data name="PMale" xml:space="preserve">
+    <value>Mann</value>
+  </data>
+  <data name="PName" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="PNumber" xml:space="preserve">
+    <value>Antall</value>
+  </data>
+  <data name="PrintPreview" xml:space="preserve">
+    <value>Forhåndsvisning</value>
+  </data>
+  <data name="PStreet" xml:space="preserve">
+    <value>Gate</value>
+  </data>
+  <data name="PWard" xml:space="preserve">
+    <value>Avdeling</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Rapporter</value>

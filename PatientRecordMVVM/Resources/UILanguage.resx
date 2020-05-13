@@ -123,8 +123,20 @@
   <data name="Analytics" xml:space="preserve">
     <value>Analytics</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ConfigurePrint" xml:space="preserve">
+    <value>Configure Print</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Date :</value>
+  </data>
+  <data name="DefaultPrint" xml:space="preserve">
+    <value>Default Print</value>
   </data>
   <data name="EmpList" xml:space="preserve">
     <value>Employee List</value>
@@ -138,8 +150,59 @@
   <data name="MainTitle" xml:space="preserve">
     <value>Patient Registration Information</value>
   </data>
+  <data name="MedicalInfo" xml:space="preserve">
+    <value>Patient Medical Information</value>
+  </data>
+  <data name="PAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="PAge" xml:space="preserve">
+    <value>Age</value>
+  </data>
   <data name="PatientId" xml:space="preserve">
     <value>Patient ID :</value>
+  </data>
+  <data name="PBirthdate" xml:space="preserve">
+    <value>Birthdate</value>
+  </data>
+  <data name="PCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="PDepartment" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="PDocInCharge" xml:space="preserve">
+    <value>Doctor In Charge</value>
+  </data>
+  <data name="PersonalInfo" xml:space="preserve">
+    <value>Patient Personal Information</value>
+  </data>
+  <data name="PFemale" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="PGender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="PImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="PMale" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="PName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PNumber" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="PrintPreview" xml:space="preserve">
+    <value>Print Preview</value>
+  </data>
+  <data name="PStreet" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="PWard" xml:space="preserve">
+    <value>Ward</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>

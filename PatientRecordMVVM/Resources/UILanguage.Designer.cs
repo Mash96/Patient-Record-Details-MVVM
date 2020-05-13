@@ -79,11 +79,47 @@ namespace PatientRecordMVVM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse.
+        /// </summary>
+        public static string Browse {
+            get {
+                return ResourceManager.GetString("Browse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure Print.
+        /// </summary>
+        public static string ConfigurePrint {
+            get {
+                return ResourceManager.GetString("ConfigurePrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date :.
         /// </summary>
         public static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Print.
+        /// </summary>
+        public static string DefaultPrint {
+            get {
+                return ResourceManager.GetString("DefaultPrint", resourceCulture);
             }
         }
         
@@ -124,11 +160,164 @@ namespace PatientRecordMVVM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patient Medical Information.
+        /// </summary>
+        public static string MedicalInfo {
+            get {
+                return ResourceManager.GetString("MedicalInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string PAddress {
+            get {
+                return ResourceManager.GetString("PAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string PAge {
+            get {
+                return ResourceManager.GetString("PAge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patient ID :.
         /// </summary>
         public static string PatientId {
             get {
                 return ResourceManager.GetString("PatientId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Birthdate.
+        /// </summary>
+        public static string PBirthdate {
+            get {
+                return ResourceManager.GetString("PBirthdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string PCity {
+            get {
+                return ResourceManager.GetString("PCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department.
+        /// </summary>
+        public static string PDepartment {
+            get {
+                return ResourceManager.GetString("PDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doctor In Charge.
+        /// </summary>
+        public static string PDocInCharge {
+            get {
+                return ResourceManager.GetString("PDocInCharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient Personal Information.
+        /// </summary>
+        public static string PersonalInfo {
+            get {
+                return ResourceManager.GetString("PersonalInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        public static string PFemale {
+            get {
+                return ResourceManager.GetString("PFemale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        public static string PGender {
+            get {
+                return ResourceManager.GetString("PGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string PImage {
+            get {
+                return ResourceManager.GetString("PImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        public static string PMale {
+            get {
+                return ResourceManager.GetString("PMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string PName {
+            get {
+                return ResourceManager.GetString("PName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string PNumber {
+            get {
+                return ResourceManager.GetString("PNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print Preview.
+        /// </summary>
+        public static string PrintPreview {
+            get {
+                return ResourceManager.GetString("PrintPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string PStreet {
+            get {
+                return ResourceManager.GetString("PStreet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ward.
+        /// </summary>
+        public static string PWard {
+            get {
+                return ResourceManager.GetString("PWard", resourceCulture);
             }
         }
         

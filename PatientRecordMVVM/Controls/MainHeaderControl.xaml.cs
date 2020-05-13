@@ -1,11 +1,6 @@
-﻿using PatientRecordMVVM.Views;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using System.Threading;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using PatientRecordMVVM.Utilities;
 
 namespace PatientRecordMVVM.Controls
 {
@@ -17,31 +12,31 @@ namespace PatientRecordMVVM.Controls
         public MainHeaderControl()
         {
             InitializeComponent();
+            English.IsChecked = true;
         }
 
         private void English_Click(object sender, RoutedEventArgs e)
         {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             English.IsChecked = true;
             if (Norwegian.IsChecked == true)
             {
                 Norwegian.IsChecked = false;
             }
-            
+
+            LanguageTransalationUtility.TransalationUtility.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 
         }
 
         private void Norwegian_Click(object sender, RoutedEventArgs e)
         {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ng-NO");
+            
             Norwegian.IsChecked = true;
             if (English.IsChecked == true)
             {
                 English.IsChecked = false;
             }
-            
-            HomeCareMainWindow homeCareMain = new HomeCareMainWindow();
-            homeCareMain.Show();
+
+            LanguageTransalationUtility.TransalationUtility.CurrentCulture = new System.Globalization.CultureInfo("nb-NO");
         }
     }
 }

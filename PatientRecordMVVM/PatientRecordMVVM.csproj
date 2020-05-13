@@ -45,7 +45,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\UILanguage.ng-NO.resx">
+    <EmbeddedResource Update="Resources\UILanguage.nb-NO.resx">
       <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\UILanguage.resx">

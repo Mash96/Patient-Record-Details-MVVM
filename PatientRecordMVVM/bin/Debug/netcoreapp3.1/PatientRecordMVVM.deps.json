@@ -12,6 +12,11 @@
         },
         "runtime": {
           "PatientRecordMVVM.dll": {}
+        },
+        "resources": {
+          "nb-NO/PatientRecordMVVM.resources.dll": {
+            "locale": "nb-NO"
+          }
         }
       },
       "MaterialDesignColors/1.2.3": {
