@@ -11,6 +11,7 @@
         xmlns:language ="clr-namespace:PatientRecordMVVM.Utilities"
         mc:Ignorable="d"
         Height="850" Width="1500" Foreground="White">
+    
     <Window.DataContext>
         <vm:HomeCareMainViewModel/>
     </Window.DataContext>
@@ -25,10 +26,21 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0:0" Value="210"/>
             </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ListButton">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0:0" Value="190"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridSideMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="210"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0:0" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="ListButton">
+                <EasingDoubleKeyFrame KeyTime="0" Value="190"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0:0" Value="60"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -60,7 +72,7 @@
             <controls:MainHeaderControl/>
         </Grid>
 
-        <Grid x:Name="GridSideMenu" Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource GridShadow}" Width="210" HorizontalAlignment="Left" Background="#1A365D">
+        <Grid x:Name="GridSideMenu" Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource GridShadow}" HorizontalAlignment="Left" Background="#1A365D" Width="210">
             <StackPanel Orientation="Vertical">
                 <Grid Background="White" Height="150" VerticalAlignment="Top">
                     <Image x:Name="SideLogo" Source="/PatientRecordMVVM;component/Images/logo.jpg" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -73,7 +85,7 @@
                 </Grid>
                 <ListView Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,50,0,0">
                     <ListViewItem Height="60" HorizontalAlignment="Center">
-                        <Button Command="{Binding Path=AddPatientCommand}" Style="{DynamicResource MaterialDesignRaisedLightButton}" Foreground="White" Background="#58af9d" BorderBrush="#58af9d" Width="190" Height="40" VerticalAlignment="Top">
+                        <Button x:Name="ListButton" Command="{Binding Path=AddPatientCommand}" Style="{DynamicResource MaterialDesignRaisedLightButton}" Foreground="White" Background="#58af9d" BorderBrush="#58af9d" Width="190" Height="40" VerticalAlignment="Top">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <materialDesign:PackIcon Kind="Add" Foreground="White" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-5,0,9,0"/>
                                 <TextBlock Text="{language:Localization AddPatient}" FontSize="12" VerticalAlignment="Center"/>
@@ -84,7 +96,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="GridCard" Grid.Row="1" Grid.Column="1">
+        <Grid x:Name="GridCard" Grid.Row="1" Grid.ColumnSpan="1" Grid.Column="1" HorizontalAlignment="Center">
             <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Width="210" Height="730" Margin="0,10">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Stretch">
                     <Button x:Name="ButtonAnalytics" Width="150" Height="150" Background="#CEE8EC" BorderBrush="#CEE8EC" Margin="0,20,0,10">

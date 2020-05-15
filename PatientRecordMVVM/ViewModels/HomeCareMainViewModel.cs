@@ -28,9 +28,6 @@ namespace PatientRecordMVVM.ViewModels
                 OnPropertyChange("SelectedViewModel");
             }
         }
-
-    public string LangSwitch { get; private set; } = null;
-
         #endregion
 
         #region Commands

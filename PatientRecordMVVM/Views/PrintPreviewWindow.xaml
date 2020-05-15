@@ -9,10 +9,7 @@
         xmlns:controls ="clr-namespace:PatientRecordMVVM.Controls"
         mc:Ignorable="d"
         Title="Print Preview" Height="850" Width="1000" Foreground="White">
-    <Window.Resources>
-        
-    </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>

@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon></ApplicationIcon>
+    <ApplicationIcon>logo_V65_icon.ico</ApplicationIcon>
     <RootNamespace>PatientRecordMVVM</RootNamespace>
   </PropertyGroup>
 
